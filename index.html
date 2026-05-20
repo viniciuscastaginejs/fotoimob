@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FotoLab | Fotos de Evolução de Obra</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #131a24;
+    --surface2: #1a2332;
+    --surface3: #1f2b3d;
+    --gold: #c9922a;
+    --gold-light: #e8b44a;
+    --gold-dim: rgba(201,146,42,0.18);
+    --dark: #f0ece4;
+    --muted: #8a96a8;
+    --muted2: #6a7585;
+    --border: rgba(201,146,42,0.18);
+    --border-subtle: rgba(255,255,255,0.07);
+    --nav-bg: rgba(13,17,23,0.97);
+    --card-bg: #131a24;
+    --shadow: 0 2px 20px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.3);
+    --shadow-hover: 0 8px 48px rgba(0,0,0,0.5), 0 2px 12px rgba(201,146,42,0.1);
+    --shadow-gold: 0 4px 32px rgba(201,146,42,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--dark); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-img { height: 48px; width: auto; object-fit: contain; }
+  .logo-fallback { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.4rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a { color: var(--muted); font-size: 0.78rem; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; }
+  nav ul a:hover { color: var(--gold); }
+  .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--gold); color: #0d1117; }
+
+  /* ── HERO ── */
+  .hero {
+    margin-top: 80px;
+    min-height: 740px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(201,146,42,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 64px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    color: var(--dark);
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 48px;
+  }
+
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #0d1117;
+    padding: 16px 36px;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--dark);
+    padding: 16px 36px;
+    border: 1px solid rgba(240,236,228,0.25);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    min-height: 740px;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .hero-img { position: relative; overflow: hidden; background: var(--surface2); }
+  .hero-img:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .hero-img:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .hero-img:nth-child(3) { grid-column: 2; grid-row: 1 / 3; }
+
+  .hero-img::after {
+    content: attr(data-label);
+    position: absolute; bottom: 12px; left: 12px;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.9); background: rgba(0,0,0,0.5);
+    padding: 4px 8px; z-index: 2;
+  }
+  .hero-img img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center; z-index: 1;
+  }
+  .photo-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0.12;
+  }
+  .photo-placeholder svg { width: 48px; height: 48px; fill: var(--gold); }
+
+  .hero-stat-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex; gap: 40px; justify-content: center; align-items: center;
+    background: rgba(13,17,23,0.93);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    padding: 20px 32px; z-index: 3;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 300; color: var(--gold); display: block; }
+  .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+  .divider { height: 1px; background: var(--border-subtle); margin: 0 48px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 100px 48px; }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  h2 { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.2; margin-bottom: 16px; color: var(--dark); }
+  h2 em { font-style: italic; color: var(--gold); }
+  .section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 540px; margin-bottom: 64px; }
+
+  /* ── SERVICES ── */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .service-card {
+    background: var(--card-bg); padding: 48px 36px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.4s; position: relative; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .service-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,146,42,0.05) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.4s; pointer-events: none;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border); }
+  .service-card:hover::before { opacity: 1; }
+  .service-num { font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,146,42,0.1); line-height: 1; margin-bottom: 24px; }
+  .service-icon { margin-bottom: 20px; }
+  .service-icon svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .service-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 300; margin-bottom: 14px; color: var(--dark); }
+  .service-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+  .service-link {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 24px;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none; transition: gap 0.3s;
+  }
+  .service-link:hover { gap: 14px; }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-section { padding: 100px 48px; background: var(--surface); }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 3px; margin-top: 48px;
+  }
+  .port-item { background: var(--surface2); position: relative; overflow: hidden; cursor: pointer; }
+  .port-item:nth-child(1) { grid-row: 1 / 3; }
+  .port-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.5s ease; }
+  .port-item:hover img { transform: scale(1.04); }
+  .port-item-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+    opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; padding: 24px;
+  }
+  .port-item:hover .port-item-overlay { opacity: 1; }
+  .port-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; }
+  .port-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0.1; }
+  .port-inner svg { width: 40px; height: 40px; fill: var(--gold); }
+
+  /* VIDEO ROW */
+  .video-row { margin-top: 3px; }
+  .video-placeholder {
+    background: var(--surface2); border: 1px solid var(--border-subtle);
+    display: flex; align-items: center; justify-content: center;
+    height: 200px; gap: 16px; cursor: pointer; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .video-placeholder:hover { border-color: var(--border); }
+  .video-placeholder::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,146,42,0.04), transparent);
+  }
+  .play-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(201,146,42,0.15); border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .video-placeholder:hover .play-btn { background: var(--gold); }
+  .play-btn svg { width: 22px; height: 22px; fill: var(--gold); margin-left: 3px; transition: fill 0.3s; }
+  .video-placeholder:hover .play-btn svg { fill: #0d1117; }
+  .video-info { position: relative; z-index: 1; }
+  .video-badge {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px; display: block;
+  }
+  .video-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 300; color: var(--dark); margin-bottom: 4px; }
+  .video-sub { font-size: 0.8rem; color: var(--muted); }
+
+  /* ── PLANS ── */
+  .plans-section { padding: 100px 48px; background: var(--surface); }
+  .plans-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 64px; align-items: stretch;
+  }
+  .plan-card {
+    background: var(--card-bg); padding: 40px 32px;
+    position: relative; border: 1px solid var(--border-subtle);
+    transition: all 0.4s; box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+  }
+  .plan-card.featured {
+    background: var(--surface3);
+    border-color: var(--border);
+  }
+  .plan-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+  /* plan header */
+  .plan-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .plan-icon { font-size: 1.5rem; }
+  .plan-name-row { display: flex; flex-direction: column; }
+  .plan-badge {
+    position: absolute; top: -1px; left: 32px;
+    background: var(--gold); color: #0d1117;
+    font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 5px 14px; font-weight: 500;
+  }
+  .plan-name { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  .plan-title { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; color: var(--dark); }
+
+  /* pricing table */
+  .plan-pricing {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0; margin: 24px 0 28px;
+    border: 1px solid var(--border-subtle);
+  }
+  .price-col {
+    padding: 14px 12px; text-align: center;
+    border-right: 1px solid var(--border-subtle);
+    position: relative;
+  }
+  .price-col:last-child { border-right: none; }
+  .price-col.highlight { background: rgba(201,146,42,0.06); }
+  .price-period {
+    font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted2); margin-bottom: 6px; display: block;
+  }
+  .price-qty { font-size: 0.72rem; color: var(--gold); font-weight: 500; display: block; margin-bottom: 2px; }
+  .price-val { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 300; color: var(--dark); }
+  .price-val sup { font-size: 0.65rem; vertical-align: super; }
+
+  /* features */
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 20px; flex: 1; }
+  .plan-features li {
+    font-size: 0.84rem; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;
+  }
+  .plan-features li::before { content: ''; width: 14px; height: 1px; background: var(--gold); flex-shrink: 0; margin-top: 9px; }
+  .plan-features li strong { color: var(--dark); font-weight: 400; }
+  .plan-target { font-size: 0.82rem; color: rgba(201,146,42,0.7); font-style: italic; margin-bottom: 24px; line-height: 1.5; }
+  .plan-btn-wrap { margin-top: auto; }
+
+  /* ── DIFF (WHY US) ── */
+  .diff-section {
+    padding: 100px 48px; background: var(--bg);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .diff-list { display: flex; flex-direction: column; gap: 32px; }
+  .diff-item { display: flex; gap: 24px; align-items: flex-start; }
+  .diff-num { font-family: 'Fraunces', serif; font-size: 0.9rem; color: var(--gold); font-style: italic; flex-shrink: 0; margin-top: 4px; }
+  .diff-title { font-size: 1rem; font-weight: 400; margin-bottom: 6px; color: var(--dark); }
+  .diff-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+  .diff-visual { position: relative; height: 500px; overflow: hidden; }
+  .diff-img-main {
+    position: absolute; inset: 0;
+    background: var(--surface2);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .diff-img-main img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .diff-badge {
+    position: absolute; bottom: 0; right: 0;
+    background: var(--surface3); border: 1px solid var(--border);
+    padding: 24px 32px; text-align: center;
+    box-shadow: var(--shadow-gold); z-index: 2;
+  }
+  .diff-badge-num { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 300; color: var(--gold); display: block; }
+  .diff-badge-text { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+  /* ── CLIENTS ── */
+  .testimonials-section {
+    padding: 100px 48px; background: var(--surface);
+    position: relative; overflow: hidden;
+  }
+  .testimonials-section::before {
+    content: ''; position: absolute; inset: 0; z-index: 0;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,146,42,0.02) 60px, rgba(201,146,42,0.02) 61px);
+    pointer-events: none;
+  }
+  .testimonials-section > * { position: relative; z-index: 1; }
+
+  .logos-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 2px; margin-top: 56px;
+  }
+  .logo-item {
+    background: var(--card-bg); border: 1px solid var(--border-subtle);
+    padding: 28px 20px; display: flex; align-items: center; justify-content: center;
+    min-height: 100px; box-shadow: var(--shadow); transition: all 0.3s;
+  }
+  .logo-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--border); }
+  .logo-item img {
+    max-width: 130px; max-height: 52px; object-fit: contain;
+    filter: grayscale(100%) invert(1); opacity: 0.5;
+    transition: filter 0.3s, opacity 0.3s;
+  }
+  .logo-item:hover img { filter: grayscale(40%) invert(1) sepia(0.3) saturate(2) hue-rotate(5deg); opacity: 0.85; }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    padding: 100px 48px; background: var(--bg);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  }
+  .contact-info { padding-right: 32px; }
+  .contact-detail { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+  .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+  .contact-icon {
+    width: 36px; height: 36px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .contact-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .contact-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .contact-value { font-size: 0.9rem; color: var(--dark); margin-top: 2px; }
+  form { display: flex; flex-direction: column; gap: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  input, select, textarea {
+    background: var(--surface); border: 1px solid var(--border-subtle);
+    color: var(--dark); padding: 14px 16px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 300;
+    outline: none; transition: border-color 0.3s; width: 100%;
+  }
+  input::placeholder, textarea::placeholder { color: var(--muted2); }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+  textarea { resize: none; height: 120px; }
+  select { appearance: none; cursor: pointer; }
+  select option { background: var(--surface); color: var(--dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border-subtle); padding: 40px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--surface);
+  }
+  .footer-logo { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.1rem; color: var(--gold); letter-spacing: 0.1em; }
+  .footer-text { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--muted); font-size: 0.72rem; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── SCROLL ANCHOR ── */
+  #planos, #portfolio, #servicos, #contato, #clientes { scroll-margin-top: 80px; }
+
+  /* ── ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(32px); animation: revealUp 0.7s ease forwards; }
+  .reveal-delay-1 { animation-delay: 0.1s; }
+  .reveal-delay-2 { animation-delay: 0.2s; }
+  .reveal-delay-3 { animation-delay: 0.3s; }
+  @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 12px 20px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 80px 20px 28px; }
+    .hero-right { position: relative; height: 280px; min-height: unset; }
+    .hero-stat-bar { position: relative; gap: 16px; padding: 16px 12px; }
+    .stat-num { font-size: 1.3rem; }
+    .section, .plans-section, .portfolio-section, .testimonials-section, .contact-section { padding: 60px 20px; }
+    .services-grid { grid-template-columns: 1fr; gap: 12px; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
+    .port-item:nth-child(1) { grid-row: 1; grid-column: 1 / 3; }
+    .plans-grid { grid-template-columns: 1fr; gap: 16px; }
+    .diff-section { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
+    .diff-visual { height: 280px; }
+    .logos-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-section { grid-template-columns: 1fr; gap: 36px; padding: 60px 20px; }
+    .contact-info { padding-right: 0; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 14px; text-align: center; padding: 28px 20px; }
+    .divider { margin: 0 20px; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 10px 16px; }
+    h1 { font-size: 2rem; }
+    .hero-left { padding: 90px 16px 24px; }
+    .hero-right { height: 70vw; }
+    .logos-grid { grid-template-columns: repeat(2, 1fr); }
+    .section, .plans-section, .portfolio-section, .testimonials-section, .contact-section { padding: 48px 16px; }
+    .diff-section { padding: 48px 16px; }
+    footer { padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo-wrap">
+    <img src="logotipo.png" alt="FotoLab" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+    <span class="logo-fallback" style="display:none;">FotoLab</span>
+  </a>
+  <ul>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Contratar</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Fotografia de Evolução de Obra</div>
+    <h1>Transforme a evolução<br>da sua obra em valor para<br>sua <em>marca.</em></h1>
+    <p class="hero-sub">Imagens profissionais aumentam a percepção de qualidade, organização e confiança no seu empreendimento.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver Planos</button>
+      <button class="btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Ver Cases</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid" id="heroGrid">
+      <div class="hero-img" data-label="Imagem Aérea">
+        <img src="aerea.jpeg" alt="Fotografia Aérea de Obra" loading="eager" onerror="this.style.display='none'">
+        <div class="photo-placeholder"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      </div>
+      <div class="hero-img" data-label="Área Externa">
+        <img src="externa.jpeg" alt="Área Externa" loading="eager" onerror="this.style.display='none'">
+        <div class="photo-placeholder"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      </div>
+      <div class="hero-img" data-label="Área Interna">
+        <img src="interna.jpeg" alt="Área Interna" loading="eager" onerror="this.style.display='none'">
+        <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      </div>
+    </div>
+    <div class="hero-stat-bar">
+      <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Obras Registradas</span></div>
+      <div class="stat"><span class="stat-num">Brasil</span><span class="stat-label">Atuação Nacional</span></div>
+      <div class="stat"><span class="stat-num">18+</span><span class="stat-label">Anos de Mercado</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVIÇOS -->
+<section class="section" id="servicos">
+  <div class="section-label reveal">O que oferecemos</div>
+  <h2 class="reveal reveal-delay-1">Imagens profissionais, que agregam<br>valor ao seu <em>empreendimento.</em></h2>
+  <p class="section-sub reveal reveal-delay-2">Conteúdo de qualidade fortalece a presença digital do seu empreendimento, além de transmitir credibilidade, qualidade e confiança na execução da obra.</p>
+  <div class="services-grid">
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">01</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+      </div>
+      <div class="service-title">Fotografia Profissional</div>
+      <p class="service-desc">Imagens produzidas com padrão profissional, incluindo captação aérea para registro da evolução de toda a obra.</p>
+      <a class="service-link" href="#planos" onclick="event.preventDefault();document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver planos →</a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">02</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="16"/>
+          <line x1="8" y1="12" x2="16" y2="12"/>
+          <path d="M12 2l2 4-2 1-2-1z" fill="var(--gold)" stroke="none"/>
+          <circle cx="12" cy="12" r="2" fill="var(--gold)" stroke="none"/>
+        </svg>
+      </div>
+      <div class="service-title">Olhar Estratégico</div>
+      <p class="service-desc">Conteúdo pensado para valorizar os diferenciais do empreendimento e fortalecer sua comunicação com o cliente.</p>
+      <a class="service-link" href="#planos" onclick="event.preventDefault();document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver planos →</a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-num">03</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+        </svg>
+      </div>
+      <div class="service-title">Todas as Etapas São Importantes</div>
+      <p class="service-desc">Registramos todas as fases da obra — da preparação do terreno à entrega das chaves — criando um histórico visual completo do empreendimento.</p>
+      <a class="service-link" href="#planos" onclick="event.preventDefault();document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver planos →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="section-label reveal">Nosso trabalho</div>
+  <h2 class="reveal reveal-delay-1">Imagens que contam histórias e mostram<br>organização, evolução e <em>credibilidade.</em></h2>
+  <p class="section-sub reveal reveal-delay-2">Seu cliente vai se sentir valorizado.</p>
+
+  <div class="portfolio-grid">
+    <div class="port-item reveal reveal-delay-1">
+      <img src="case1.jpeg" loading="lazy" alt="Fachada em execução" onerror="this.style.display='none'">
+      <div class="port-inner"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      <div class="port-item-overlay"><span class="port-label">Fachada em Execução</span></div>
+    </div>
+    <div class="port-item reveal reveal-delay-2">
+      <img src="case2.jpeg" loading="lazy" alt="Vista Aérea" onerror="this.style.display='none'">
+      <div class="port-inner"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
+      <div class="port-item-overlay"><span class="port-label">Vista Aérea</span></div>
+    </div>
+    <div class="port-item reveal reveal-delay-3">
+      <img src="case3.jpeg" loading="lazy" alt="Área Interna" onerror="this.style.display='none'">
+      <div class="port-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+      <div class="port-item-overlay"><span class="port-label">Área Interna</span></div>
+    </div>
+    <div class="port-item reveal reveal-delay-2">
+      <img src="case4.jpeg" loading="lazy" alt="Condomínio Multifamiliar" onerror="this.style.display='none'">
+      <div class="port-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg></div>
+      <div class="port-item-overlay"><span class="port-label">Condomínio Multifamiliar</span></div>
+    </div>
+    <div class="port-item reveal reveal-delay-3">
+      <img src="case5.jpeg" loading="lazy" alt="Entrega das Chaves" onerror="this.style.display='none'">
+      <div class="port-inner"><svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778"/></svg></div>
+      <div class="port-item-overlay"><span class="port-label">Entrega das Chaves</span></div>
+    </div>
+  </div>
+
+  <!-- Video placeholder -->
+  <div class="video-row reveal">
+    <div class="video-placeholder" onclick="alert('Vídeo em breve')">
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <div class="video-info">
+        <span class="video-badge">Vídeo · Acompanhamento</span>
+        <div class="video-title">Do acompanhamento à entrega das chaves</div>
+        <div class="video-sub">Registro completo da jornada do empreendimento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIMENTO / PLANOS -->
+<section class="plans-section" id="planos">
+  <div class="section-label reveal">Investimento</div>
+  <h2 class="reveal reveal-delay-1">Planos para toda <em>obra</em></h2>
+  <p class="section-sub reveal reveal-delay-2">Planos desenvolvidos para diferentes perfis de empreendimento, incluindo fotografia aérea e produção de conteúdo estratégico.</p>
+
+  <div class="plans-grid">
+
+    <!-- STANDARD -->
+    <div class="plan-card reveal reveal-delay-1">
+      <div class="plan-header">
+        <span class="plan-icon">📷</span>
+        <div class="plan-name-row">
+          <span class="plan-name">Plano</span>
+          <span class="plan-title">Standard</span>
+        </div>
+      </div>
+
+      <div class="plan-pricing">
+        <div class="price-col highlight">
+          <span class="price-period">Anual</span>
+          <span class="price-qty">12×</span>
+          <span class="price-val"><sup>R$</sup>840</span>
+        </div>
+        <div class="price-col">
+          <span class="price-period">Semestral</span>
+          <span class="price-qty">6×</span>
+          <span class="price-val"><sup>R$</sup>890</span>
+        </div>
+        <div class="price-col">
+          <span class="price-period">Pontual</span>
+          <span class="price-qty">&nbsp;</span>
+          <span class="price-val"><sup>R$</sup>990</span>
+        </div>
+      </div>
+
+      <ul class="plan-features">
+        <li><strong>10 Imagens Finais</strong> por obra</li>
+        <li><strong>1 Imagem Aérea</strong> inclusa</li>
+        <li>Entrega em <strong>5 dias úteis</strong></li>
+        <li>Captação em <strong>áreas externas</strong></li>
+      </ul>
+      <div class="plan-target">Ideal para obras de menor porte, com 1 ou 2 torres.</div>
+      <div class="plan-btn-wrap">
+        <a href="https://wa.me/5521987431010" target="_blank" rel="noopener" class="btn-outline" style="width:100%;display:block;text-align:center;">Contratar</a>
+      </div>
+    </div>
+
+    <!-- CORPORATE -->
+    <div class="plan-card featured reveal reveal-delay-2">
+      <div class="plan-badge">⭐ Mais Contratado</div>
+      <div class="plan-header" style="margin-top:20px;">
+        <span class="plan-icon">🏢</span>
+        <div class="plan-name-row">
+          <span class="plan-name">Plano</span>
+          <span class="plan-title">Corporate</span>
+        </div>
+      </div>
+
+      <div class="plan-pricing">
+        <div class="price-col highlight">
+          <span class="price-period">Anual</span>
+          <span class="price-qty">12×</span>
+          <span class="price-val"><sup>R$</sup>1.270</span>
+        </div>
+        <div class="price-col">
+          <span class="price-period">Semestral</span>
+          <span class="price-qty">6×</span>
+          <span class="price-val"><sup>R$</sup>1.420</span>
+        </div>
+        <div class="price-col">
+          <span class="price-period">Pontual</span>
+          <span class="price-qty">&nbsp;</span>
+          <span class="price-val"><sup>R$</sup>1.590</span>
+        </div>
+      </div>
+
+      <ul class="plan-features">
+        <li><strong>25 Imagens Finais</strong> por obra</li>
+        <li><strong>3 Imagens Aéreas</strong> inclusas</li>
+        <li>Entrega em <strong>3 a 5 dias úteis</strong></li>
+        <li>Captação em <strong>áreas externas</strong></li>
+        <li>Captação em <strong>áreas internas e unidades</strong></li>
+      </ul>
+      <div class="plan-target">Ideal para obras de condomínios multifamiliares.</div>
+      <div class="plan-btn-wrap">
+        <a href="https://wa.me/5521987431010" target="_blank" rel="noopener" class="btn-primary" style="width:100%;display:block;text-align:center;">Contratar</a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="plan-card reveal reveal-delay-3">
+      <div class="plan-header">
+        <span class="plan-icon">👑</span>
+        <div class="plan-name-row">
+          <span class="plan-name">Plano</span>
+          <span class="plan-title">Signature</span>
+        </div>
+      </div>
+
+      <div class="plan-pricing">
+        <div class="price-col highlight">
+          <span class="price-period">Anual</span>
+          <span class="price-qty">12×</span>
+          <span class="price-val"><sup>R$</sup>2.690</span>
+        </div>
+        <div class="price-col">
+          <span class="price-period">Semestral</span>
+          <span class="price-qty">6×</span>
+          <span class="price-val"><sup>R$</sup>3.090</span>
+        </div>
+        <div class="price-col">
+          <span class="price-period">Pontual</span>
+          <span class="price-qty">&nbsp;</span>
+          <span class="price-val"><sup>R$</sup>3.490</span>
+        </div>
+      </div>
+
+      <ul class="plan-features">
+        <li><strong>30 Imagens Finais</strong> por obra</li>
+        <li><strong>5 Imagens Aéreas</strong> inclusas</li>
+        <li><strong>Prioridade</strong> na entrega</li>
+        <li>Captação em <strong>áreas externas</strong></li>
+        <li>Captação em <strong>áreas internas e unidades</strong></li>
+        <li><strong>Vídeo para redes sociais</strong> (até 1')</li>
+      </ul>
+      <div class="plan-target">Ideal para obras de alto padrão e grandes condomínios multifamiliares.</div>
+      <div class="plan-btn-wrap">
+        <a href="https://wa.me/5521987431010" target="_blank" rel="noopener" class="btn-outline" style="width:100%;display:block;text-align:center;">Contratar</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé dos planos -->
+  <div style="display:flex;gap:48px;justify-content:center;margin-top:48px;padding-top:32px;border-top:1px solid var(--border-subtle);flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">Qualidade Profissional</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">Acompanhamento Contínuo</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">Transparência e Confiança</span>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE NOS ESCOLHER -->
+<section class="diff-section">
+  <div>
+    <div class="section-label reveal">Por que nos escolher</div>
+    <h2 class="reveal reveal-delay-1">Imagens profissionais fortalecem<br>a confiança no seu <em>empreendimento.</em></h2>
+    <p class="section-sub reveal reveal-delay-2" style="margin-bottom:48px">Cada projeto recebe atenção individualizada, do planejamento à entrega final.</p>
+    <div class="diff-list">
+      <div class="diff-item reveal reveal-delay-1">
+        <div class="diff-num">01</div>
+        <div>
+          <div class="diff-title">Atendimento Especializado</div>
+          <p class="diff-desc">Atendemos o mercado imobiliário há mais de 18 anos.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal reveal-delay-2">
+        <div class="diff-num">02</div>
+        <div>
+          <div class="diff-title">Padrão de Qualidade Profissional</div>
+          <p class="diff-desc">A percepção da qualidade da obra é influenciada pela qualidade das imagens mostradas.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal reveal-delay-3">
+        <div class="diff-num">03</div>
+        <div>
+          <div class="diff-title">Pacotes Flexíveis</div>
+          <p class="diff-desc">Se você precisa de projetos sob medida, fale com a gente.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal reveal-delay-3">
+        <div class="diff-num">04</div>
+        <div>
+          <div class="diff-title">Pagamento Facilitado</div>
+          <p class="diff-desc">Contratação flexível, que não compromete o fluxo de caixa do seu empreendimento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="diff-visual reveal reveal-delay-2">
+    <div class="diff-img-main">
+      <img src="diferenciais.jpeg" loading="lazy" alt="Nossa experiência" onerror="this.style.display='none'">
+    </div>
+    <div class="diff-badge">
+      <span class="diff-badge-num">100%</span>
+      <span class="diff-badge-text">Clientes Satisfeitos</span>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section class="testimonials-section" id="clientes">
+  <div class="section-label reveal">Nossos Clientes</div>
+  <h2 class="reveal reveal-delay-1">Empresas que já <em>atendemos</em></h2>
+  <p class="section-sub reveal reveal-delay-2">Grandes incorporadoras e construtoras que confiaram no nosso trabalho.</p>
+  <div class="logos-grid">
+    <div class="logo-item"><img src="logo1-direcional.png" alt="Direcional" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo2-riva.png" alt="Riva" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo3-cyrela.png" alt="Cyrela" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo4-tegra.jpg" alt="Tegra Incorporadora" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo5-brookfield.jpg" alt="Brookfield" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo6-opportunity.png" alt="Opportunity" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo7-patrimar.png" alt="Patrimar" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo8-pdg.png" alt="PDG" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo9-calcada.png" alt="Calçada" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo10-wtorre.png" alt="WTorre" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo11-itten.png" alt="itten" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo12-helbor.png" alt="Helbor" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo13-even.png" alt="Even" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo14-gafisa.png" alt="Gafisa" loading="lazy" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="logo15-rossi.png" alt="Rossi" loading="lazy" onerror="this.style.opacity='0'"></div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact-section" id="contato">
+  <div class="contact-info">
+    <div class="section-label reveal">Fale conosco</div>
+    <h2 class="reveal reveal-delay-1">Vamos conversar sobre o seu <em>empreendimento?</em></h2>
+    <p class="section-sub reveal reveal-delay-2" style="margin-bottom:0">Nossa equipe está pronta para entender as necessidades da sua obra e apresentar a solução ideal para o seu projeto.</p>
+    <div class="contact-detail">
+      <div class="contact-item reveal reveal-delay-1">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <a href="https://wa.me/5521987431010" target="_blank" rel="noopener" class="contact-value" style="color:var(--gold);text-decoration:none;">(21) 98743-1010</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form action="https://formspree.io/f/xqewqbne" method="POST" class="reveal reveal-delay-2">
+    <div class="form-row">
+      <div class="field"><label>Nome</label><input type="text" name="nome" placeholder="Seu nome" required></div>
+      <div class="field"><label>Empresa / Incorporadora</label><input type="text" name="empresa" placeholder="Nome da empresa"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="(00) 00000-0000" required></div>
+      <div class="field">
+        <label>Plano de interesse</label>
+        <select name="plano">
+          <option value="">Selecione...</option>
+          <option>Plano Standard</option>
+          <option>Plano Corporate</option>
+          <option>Plano Signature</option>
+          <option>Não sei ainda</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>Tipo de empreendimento</label><input type="text" name="empreendimento" placeholder="Ex: Condomínio multifamiliar, alto padrão, torres..."></div>
+    <div class="field"><label>Mensagem (opcional)</label><textarea name="mensagem" placeholder="Conte um pouco mais sobre a sua obra..."></textarea></div>
+    <button type="submit" class="btn-primary" style="width:100%;padding:18px">Enviar Mensagem</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">FotoLab Fotografia</div>
+  <div class="footer-text">© 2026 · FotoLab · Fotografia de Evolução de Obra · Rio de Janeiro · RJ · BR</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/fotolab_br/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://wa.me/5521987431010" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth < 900) return;
+    const grid = document.getElementById('heroGrid');
+    if (!grid) return;
+    const sy = window.scrollY;
+    if (sy < window.innerHeight * 1.2) {
+      grid.style.transform = 'translateY(' + (sy * 0.1) + 'px)';
+    }
+  }, { passive: true });
+</script>
+</body>
+</html>
