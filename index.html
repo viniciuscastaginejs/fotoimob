@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FotoLab | Fotos de Evolução de Obra</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0d1117;
@@ -89,15 +89,15 @@
   }
   .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
 
-  h1 {
-    font-family: 'Fraunces', serif;
+h1 {
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(2.2rem, 4vw, 3.6rem);
-    font-weight: 300;
+    font-weight: 900;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
     margin-bottom: 28px;
     color: var(--dark);
-  }
+}
   h1 em { font-style: italic; color: var(--gold); }
 
   .hero-sub {
@@ -200,8 +200,15 @@
     color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
   }
   .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
-  h2 { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.2; margin-bottom: 16px; color: var(--dark); }
-  h2 em { font-style: italic; color: var(--gold); }
+ h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--dark);
+    letter-spacing: -0.04em;
+}
   .section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 540px; margin-bottom: 64px; }
 
   /* ── SERVICES ── */
