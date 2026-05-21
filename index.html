@@ -97,8 +97,12 @@ h1 {
     letter-spacing: -0.02em;
     margin-bottom: 28px;
     color: var(--dark);
+    text-transform: uppercase;
 }
-  h1 em { font-style: italic; color: var(--gold); }
+  h1 em {
+    font-style: normal;
+    color: var(--gold);
+}
 
   .hero-sub {
     font-size: 1rem;
@@ -208,6 +212,7 @@ h2 {
     margin-bottom: 16px;
     color: var(--dark);
     letter-spacing: -0.02em;
+    text-transform: uppercase;
 }
   .section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 540px; margin-bottom: 64px; }
 
@@ -229,7 +234,14 @@ h2 {
   .service-num { font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,146,42,0.1); line-height: 1; margin-bottom: 24px; }
   .service-icon { margin-bottom: 20px; }
   .service-icon svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-  .service-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 300; margin-bottom: 14px; color: var(--dark); }
+  .service-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 14px;
+    color: var(--dark);
+    text-transform: uppercase;
+}
   .service-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
   .service-link {
     display: inline-flex; align-items: center; gap: 8px; margin-top: 24px;
@@ -321,7 +333,13 @@ h2 {
     padding: 5px 14px; font-weight: 500;
   }
   .plan-name { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-  .plan-title { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; color: var(--dark); }
+  .plan-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--dark);
+    text-transform: uppercase;
+}
 
   /* pricing table */
   .plan-pricing {
@@ -525,8 +543,8 @@ h2 {
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">Fotografia de Evolução de Obra</div>
-    <h1>TRANSFORME A EVOLUÇÃO<br>DA SUA OBRA EM VALOR PARA<br>SUA<em>MARCA.</em></h1>
-    <p class="hero-sub">Imagens profissionais aumentam a percepção de qualidade, organização e confiança no seu empreendimento.</p>
+    <h1>TRANSFORME A EVOLUÇÃO<br>DA SUA OBRA EM VALOR PARA<br>SUA MARCA</h1>
+    <p class="hero-sub">Imagens profissionais aumentam a percepção de qualidade, organização e confiança no seu EMPREENDIMENTO</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver Planos</button>
       <button class="btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Ver Cases</button>
@@ -561,7 +579,7 @@ h2 {
 <section class="section" id="servicos">
   <div class="section-label reveal">O que oferecemos</div>
   <h2 class="reveal reveal-delay-1">Imagens profissionais, que agregam<br>valor ao seu <em>empreendimento.</em></h2>
-  <p class="section-sub reveal reveal-delay-2">Conteúdo de qualidade fortalece a presença digital do seu empreendimento, além de transmitir credibilidade, qualidade e confiança na execução da obra.</p>
+  <p class="section-sub reveal reveal-delay-2">Conteúdo de qualidade fortalece a presença digital do seu empreendimento, além de transmitir CREDIBILIDADE, qualidade e confiança na execução da obra.</p>
   <div class="services-grid">
 
     <div class="service-card reveal reveal-delay-1">
@@ -668,7 +686,7 @@ h2 {
     <!-- STANDARD -->
     <div class="plan-card reveal reveal-delay-1">
       <div class="plan-header">
-        <span class="plan-icon">📷</span>
+        <span class="plan-icon"></span>
         <div class="plan-name-row">
           <span class="plan-name">Plano</span>
           <span class="plan-title">Standard</span>
@@ -709,7 +727,7 @@ h2 {
     <div class="plan-card featured reveal reveal-delay-2">
       <div class="plan-badge">⭐ Mais Contratado</div>
       <div class="plan-header" style="margin-top:20px;">
-        <span class="plan-icon">🏢</span>
+        <span class="plan-icon"></span>
         <div class="plan-name-row">
           <span class="plan-name">Plano</span>
           <span class="plan-title">Corporate</span>
@@ -750,7 +768,7 @@ h2 {
     <!-- SIGNATURE -->
     <div class="plan-card reveal reveal-delay-3">
       <div class="plan-header">
-        <span class="plan-icon">👑</span>
+        <span class="plan-icon"></span>
         <div class="plan-name-row">
           <span class="plan-name">Plano</span>
           <span class="plan-title">Signature</span>
