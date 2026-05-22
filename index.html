@@ -54,175 +54,86 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 
   /* ── HAMBURGER ── */
   .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
+    display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    padding: 4px; background: none; border: none;
   }
-  .nav-hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--dark);
-    transition: all 0.3s;
-  }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); transition: all 0.3s; }
   .nav-mobile-menu {
-    display: none;
-    position: fixed;
-    top: 65px;
-    left: 0;
-    right: 0;
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px);
+    display: none; position: fixed; top: 65px; left: 0; right: 0;
+    background: var(--nav-bg); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
-    padding: 16px 20px;
-    z-index: 99;
-    flex-direction: column;
-    gap: 0;
+    padding: 16px 20px; z-index: 99; flex-direction: column; gap: 0;
   }
   .nav-mobile-menu.open { display: flex; }
   .nav-mobile-menu a {
-    color: var(--muted);
-    font-size: 0.85rem;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border-subtle);
-    transition: color 0.3s;
+    color: var(--muted); font-size: 0.85rem; text-decoration: none;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 14px 0; border-bottom: 1px solid var(--border-subtle); transition: color 0.3s;
   }
   .nav-mobile-menu a:hover { color: var(--gold); }
   .nav-mobile-menu .mobile-cta {
-    margin-top: 16px;
-    background: var(--gold);
-    color: #0d1117;
-    text-align: center;
-    padding: 14px;
-    font-weight: 500;
-    border-bottom: none;
+    margin-top: 16px; background: var(--gold); color: #0d1117;
+    text-align: center; padding: 14px; font-weight: 500; border-bottom: none;
   }
 
   /* ── HERO ── */
   .hero {
-    margin-top: 80px;
-    min-height: 740px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
+    margin-top: 80px; min-height: 740px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
   }
   .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse at 20% 50%, rgba(201,146,42,0.06) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
-
   .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 120px 64px 80px;
-    position: relative;
-    z-index: 2;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 64px 80px; position: relative; z-index: 2;
   }
-
   .hero-tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
   }
   .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
-
   h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(28px, 3.8vw, 55px);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 28px;
-    color: var(--dark);
-    text-transform: uppercase;
+    font-size: clamp(28px, 3.8vw, 55px); font-weight: 700;
+    line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 28px;
+    color: var(--dark); text-transform: uppercase;
   }
   h1 em { font-style: normal; color: var(--gold); }
-
-  .hero-sub {
-    font-size: 1rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 420px;
-    margin-bottom: 48px;
-  }
-
+  .hero-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 420px; margin-bottom: 48px; }
   .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-
   .btn-primary {
-    background: var(--gold);
-    color: #0d1117;
-    padding: 16px 36px;
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: all 0.3s;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-block;
+    background: var(--gold); color: #0d1117; padding: 16px 36px; border: none;
+    cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+    letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s;
+    font-weight: 500; text-decoration: none; display: inline-block;
   }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
   .btn-outline {
-    background: transparent;
-    color: var(--dark);
-    padding: 16px 36px;
-    border: 1px solid rgba(240,236,228,0.25);
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: all 0.3s;
-    text-decoration: none;
-    display: inline-block;
+    background: transparent; color: var(--dark); padding: 16px 36px;
+    border: 1px solid rgba(240,236,228,0.25); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+    letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s;
+    text-decoration: none; display: inline-block;
   }
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* ── HERO RIGHT / GRID ── */
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-    min-height: 740px;
-  }
-
+  /* ── HERO RIGHT ── */
+  .hero-right { position: relative; overflow: hidden; min-height: 740px; }
   .hero-grid {
-    position: absolute;
-    inset: 0 0 56px 0; /* leave room for stat bar */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 3px;
+    position: absolute; inset: 0 0 56px 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; gap: 3px;
   }
-
   .hero-img { position: relative; overflow: hidden; background: var(--surface2); }
   .hero-img:nth-child(1) { grid-column: 1; grid-row: 1; }
   .hero-img:nth-child(2) { grid-column: 1; grid-row: 2; }
   .hero-img:nth-child(3) { grid-column: 2; grid-row: 1 / 3; }
-
   .hero-img::after {
-    content: attr(data-label);
-    position: absolute; bottom: 12px; left: 12px;
+    content: attr(data-label); position: absolute; bottom: 12px; left: 12px;
     font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
     color: rgba(255,255,255,0.9); background: rgba(0,0,0,0.55);
     padding: 4px 8px; z-index: 2;
@@ -233,14 +144,11 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     transition: transform 0.5s ease;
   }
   .hero-img:hover img { transform: scale(1.04); }
-
   .hero-stat-bar {
     position: absolute; bottom: 0; left: 0; right: 0; height: 56px;
     display: flex; gap: 40px; justify-content: center; align-items: center;
-    background: rgba(13,17,23,0.93);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid var(--border);
-    padding: 0 32px; z-index: 3;
+    background: rgba(13,17,23,0.93); backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border); padding: 0 32px; z-index: 3;
   }
   .stat { text-align: center; }
   .stat-num { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); display: block; line-height: 1; }
@@ -257,13 +165,9 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
   h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1.6rem, 3vw, 2.8rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    color: var(--dark);
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+    font-size: clamp(1.6rem, 3vw, 2.8rem); font-weight: 700;
+    line-height: 1.2; margin-bottom: 16px; color: var(--dark);
+    letter-spacing: -0.02em; text-transform: uppercase;
   }
   .section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 540px; margin-bottom: 64px; }
 
@@ -271,9 +175,8 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
   .service-card {
     background: var(--card-bg); padding: 48px 36px;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.4s; position: relative; overflow: hidden;
-    box-shadow: var(--shadow);
+    border: 1px solid var(--border-subtle); transition: all 0.4s;
+    position: relative; overflow: hidden; box-shadow: var(--shadow);
   }
   .service-card::before {
     content: ''; position: absolute; inset: 0;
@@ -296,52 +199,70 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 
   /* ── PORTFOLIO ── */
   .portfolio-section { padding: 100px 48px; background: var(--surface); }
+
+  /* PHOTO GRID — 15 images, NO CROP: object-fit: contain */
   .portfolio-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 280px 280px;
-    gap: 3px; margin-top: 48px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    gap: 3px;
+    margin-top: 48px;
   }
-  .port-item { background: var(--surface2); position: relative; overflow: hidden; cursor: pointer; }
-  .port-item:nth-child(1) { grid-row: 1 / 3; }
-  .port-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.5s ease; }
-  .port-item:hover img { transform: scale(1.04); }
+  .port-item {
+    background: #0a0f18;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+  }
+  .port-item img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 1;
+    transition: transform 0.5s ease;
+  }
+  .port-item:hover img { transform: scale(1.03); }
   .port-item-overlay {
     position: absolute; inset: 0; z-index: 2;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
-    opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; padding: 24px;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 50%);
+    opacity: 0; transition: opacity 0.4s;
+    display: flex; align-items: flex-end; padding: 14px;
   }
   .port-item:hover .port-item-overlay { opacity: 1; }
-  .port-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; }
-  .port-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0.1; }
-  .port-inner svg { width: 40px; height: 40px; fill: var(--gold); }
+  .port-label {
+    font-size: 0.65rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #fff; line-height: 1.4;
+  }
 
-  /* VIDEO ROW */
-  .video-row { margin-top: 3px; }
-  .video-placeholder {
-    background: var(--surface2); border: 1px solid var(--border-subtle);
-    display: flex; align-items: center; justify-content: center;
-    height: 200px; gap: 16px; cursor: pointer; transition: all 0.3s;
-    position: relative; overflow: hidden;
+  /* VIDEO GRID */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 3px;
   }
-  .video-placeholder:hover { border-color: var(--border); }
-  .video-placeholder::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(201,146,42,0.04), transparent);
+  .video-item {
+    background: var(--surface2);
+    position: relative;
+    overflow: hidden;
   }
-  .play-btn {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: rgba(201,146,42,0.15); border: 1px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.3s; flex-shrink: 0; position: relative; z-index: 1;
+  .video-item iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
   }
-  .video-placeholder:hover .play-btn { background: var(--gold); }
-  .play-btn svg { width: 22px; height: 22px; fill: var(--gold); margin-left: 3px; transition: fill 0.3s; }
-  .video-placeholder:hover .play-btn svg { fill: #0d1117; }
-  .video-info { position: relative; z-index: 1; }
-  .video-badge { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; display: block; }
-  .video-title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-  .video-sub { font-size: 0.8rem; color: var(--muted); }
+  .video-tag {
+    padding: 10px 14px;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--surface2);
+    border-top: 1px solid var(--border-subtle);
+  }
 
   /* ── PLANS ── */
   .plans-section { padding: 100px 48px; background: var(--surface); }
@@ -370,8 +291,7 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   .plan-title { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--dark); text-transform: uppercase; }
   .plan-pricing {
     display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 0; margin: 24px 0 28px;
-    border: 1px solid var(--border-subtle);
+    gap: 0; margin: 24px 0 28px; border: 1px solid var(--border-subtle);
   }
   .price-col { padding: 14px 12px; text-align: center; border-right: 1px solid var(--border-subtle); position: relative; }
   .price-col:last-child { border-right: none; }
@@ -491,20 +411,13 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 
   /* ── STICKY MOBILE CTA BAR ── */
   .mobile-sticky-bar {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    z-index: 200;
-    display: none;
-    grid-template-columns: 1fr 1fr;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    grid-template-columns: 1fr 1fr; background: var(--surface);
+    border-top: 1px solid var(--border); box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
   }
   .mobile-sticky-bar a {
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 14px;
-    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 14px; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
     text-decoration: none; font-weight: 500; transition: all 0.3s;
   }
   .mobile-sticky-bar a:first-child { color: var(--muted); border-right: 1px solid var(--border); }
@@ -518,67 +431,33 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     nav { padding: 12px 20px; }
     nav ul, .nav-cta { display: none; }
     .nav-hamburger { display: flex; }
-
-    .hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-    .hero-left {
-      padding: 80px 20px 32px;
-      text-align: left;
-    }
-    .hero-right {
-      position: relative;
-      min-height: unset;
-      height: auto;
-    }
-    /* Stack images vertically on mobile */
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 80px 20px 32px; text-align: left; }
+    .hero-right { position: relative; min-height: unset; height: auto; }
     .hero-grid {
-      position: relative;
-      inset: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 200px 200px;
-      gap: 3px;
+      position: relative; inset: auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 200px 200px; gap: 3px;
     }
     .hero-img:nth-child(1) { grid-column: 1; grid-row: 1; }
     .hero-img:nth-child(2) { grid-column: 1; grid-row: 2; }
     .hero-img:nth-child(3) { grid-column: 2; grid-row: 1 / 3; }
-
-    .hero-stat-bar {
-      position: relative;
-      height: auto;
-      gap: 0;
-      padding: 12px 8px;
-      justify-content: space-around;
-    }
+    .hero-stat-bar { position: relative; height: auto; gap: 0; padding: 12px 8px; justify-content: space-around; }
     .stat-num { font-size: 1.2rem; }
     .stat-label { font-size: 0.55rem; }
-
     .section, .plans-section, .portfolio-section, .testimonials-section { padding: 60px 20px; }
     .contact-section { padding: 60px 20px; grid-template-columns: 1fr; gap: 36px; }
     .contact-info { padding-right: 0; }
-
     .services-grid { grid-template-columns: 1fr; gap: 12px; }
-
-    .portfolio-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 200px 200px 200px;
-    }
-    .port-item:nth-child(1) { grid-row: 1; grid-column: 1 / 3; }
-
+    .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
     .plans-grid { grid-template-columns: 1fr; gap: 16px; }
-
     .diff-section { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
     .diff-visual { height: 280px; }
-
     .logos-grid { grid-template-columns: repeat(3, 1fr); }
-
     .form-row { grid-template-columns: 1fr; }
-
     footer { flex-direction: column; gap: 14px; text-align: center; padding: 28px 20px 80px; }
     .divider { margin: 0 20px; }
-
     .mobile-sticky-bar { display: grid; }
   }
 
@@ -586,10 +465,9 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     nav { padding: 10px 16px; }
     h1 { font-size: 1.8rem; }
     .hero-left { padding: 90px 16px 24px; }
-    .hero-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 160px 160px;
-    }
+    .hero-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-grid { grid-template-columns: 1fr; }
     .logos-grid { grid-template-columns: repeat(2, 1fr); }
     .section, .plans-section, .portfolio-section, .testimonials-section { padding: 48px 16px; }
     .diff-section { padding: 48px 16px; }
@@ -642,15 +520,12 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   </div>
   <div class="hero-right">
     <div class="hero-grid" id="heroGrid">
-      <!-- Esquerda cima: Entrega de Chaves -->
       <div class="hero-img" data-label="Entrega de Chaves">
         <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779457877/ChavesStilloRJ-2554_1_ls972u.jpg" alt="Entrega de Chaves" loading="eager">
       </div>
-      <!-- Esquerda baixo: Fotografia Imobiliária -->
       <div class="hero-img" data-label="Fotografia Imobiliária">
         <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779457877/28_-_Maio_-_AP_-_3Q_-_210_-_B5_-_Cozinha_Sala_e_Varanda_srpwjg.jpg" alt="Fotografia Imobiliária" loading="eager">
       </div>
-      <!-- Direita grande: Imagem Aérea -->
       <div class="hero-img" data-label="Imagem Aérea">
         <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779458629/44219032-bf51-4482-8e49-8b88c2aee5a2.png" alt="Imagem Aérea" loading="eager">
       </div>
@@ -683,7 +558,7 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">02</div>
       <div class="service-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/><path d="M12 2l2 4-2 1-2-1z" fill="var(--gold)" stroke="none"/><circle cx="12" cy="12" r="2" fill="var(--gold)" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
       </div>
       <div class="service-title">Olhar Estratégico</div>
       <p class="service-desc">Conteúdo pensado para valorizar os diferenciais do empreendimento e fortalecer sua comunicação com o cliente.</p>
@@ -706,31 +581,96 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   <div class="section-label reveal">Nosso trabalho</div>
   <h2 class="reveal reveal-delay-1">Imagens que contam histórias e mostram<br>organização, evolução e <em>credibilidade.</em></h2>
   <p class="section-sub reveal reveal-delay-2">Seu cliente vai se sentir valorizado.</p>
+
+  <!-- 15 FOTOS — 5 colunas × 3 linhas, sem corte -->
   <div class="portfolio-grid">
-    <div class="port-item reveal reveal-delay-1">
-      <img src="case1.jpeg" loading="lazy" alt="Fachada em execução" onerror="this.style.display='none'">
-      <div class="port-inner"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-      <div class="port-item-overlay"><span class="port-label">Fachada em Execução</span></div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg" alt="Evolução de Obra" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Evolução de Obra</span></div>
     </div>
-    <div class="port-item reveal reveal-delay-2">
-      <img src="case2.jpeg" loading="lazy" alt="Vista Aérea" onerror="this.style.display='none'">
-      <div class="port-inner"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-      <div class="port-item-overlay"><span class="port-label">Vista Aérea</span></div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg" alt="Fotografia de Fachada" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Fotografia de Fachada</span></div>
     </div>
-    <div class="port-item reveal reveal-delay-3">
-      <img src="case3.jpeg" loading="lazy" alt="Área Interna" onerror="this.style.display='none'">
-      <div class="port-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
-      <div class="port-item-overlay"><span class="port-label">Área Interna</span></div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg" alt="Imagens Aéreas" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Imagens Aéreas</span></div>
     </div>
-    <div class="port-item reveal reveal-delay-2">
-      <img src="case4.jpeg" loading="lazy" alt="Condomínio Multifamiliar" onerror="this.style.display='none'">
-      <div class="port-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg></div>
-      <div class="port-item-overlay"><span class="port-label">Condomínio Multifamiliar</span></div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg" alt="Evolução Áreas Externas" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Evolução Áreas Externas</span></div>
     </div>
-    <div class="port-item reveal reveal-delay-3">
-      <img src="case5.jpeg" loading="lazy" alt="Entrega das Chaves" onerror="this.style.display='none'">
-      <div class="port-inner"><svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778"/></svg></div>
-      <div class="port-item-overlay"><span class="port-label">Entrega das Chaves</span></div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg" alt="Fotografia de Fachada" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Fotografia de Fachada</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471371/6-Decorado_ixhmcs.jpg" alt="Decorado" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Decorado</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg" alt="Áreas Comuns" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Áreas Comuns</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg" alt="Evolução Áreas Internas" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Evolução Áreas Internas</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg" alt="Evolução de Unidades" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Evolução de Unidades</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg" alt="Áreas Comuns" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Áreas Comuns</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470701/11-Decorado2_b9ln1d.jpg" alt="Decorado" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Decorado</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg" alt="Fotografia Corporativa" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Fotografia Corporativa</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg" alt="Fotografia Panorâmica" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Fotografia Panorâmica</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg" alt="Imóvel Alto Padrão" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Imóvel Alto Padrão</span></div>
+    </div>
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg" alt="Mapa Aéreo" loading="lazy">
+      <div class="port-item-overlay"><span class="port-label">Mapa Aéreo</span></div>
+    </div>
+  </div>
+
+  <!-- 6 VÍDEOS -->
+  <div class="video-grid">
+    <div class="video-item">
+      <iframe src="https://player.vimeo.com/video/859917637?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <div class="video-tag">Visita Virtual</div>
+    </div>
+    <div class="video-item">
+      <iframe src="https://player.vimeo.com/video/957415284?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <div class="video-tag">Entrega de Chaves DF</div>
+    </div>
+    <div class="video-item">
+      <iframe src="https://player.vimeo.com/video/811331261?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <div class="video-tag">Lançamento</div>
+    </div>
+    <div class="video-item">
+      <iframe src="https://player.vimeo.com/video/941605049?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <div class="video-tag">Entrega de Chaves SPI</div>
+    </div>
+    <div class="video-item">
+      <iframe src="https://player.vimeo.com/video/487195187?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <div class="video-tag">Intervenção Urbana</div>
+    </div>
+    <div class="video-item">
+      <iframe src="https://player.vimeo.com/video/1013176073?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <div class="video-tag">Entrega de Chaves SP</div>
     </div>
   </div>
 </section>
@@ -939,7 +879,6 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 </div>
 
 <script>
-  // Parallax hero
   window.addEventListener('scroll', () => {
     if (window.innerWidth < 900) return;
     const grid = document.getElementById('heroGrid');
@@ -950,14 +889,12 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     }
   }, { passive: true });
 
-  // Mobile menu
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
   }
-  // Close menu on outside click
   document.addEventListener('click', (e) => {
     const menu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.nav-hamburger');
@@ -968,4 +905,3 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 </script>
 </body>
 </html>
-HTMLEOF
