@@ -183,28 +183,28 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 
   /* VIDEO GRID */
   .video-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:3px;
-margin-top:3px;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:3px;
+  margin-top:3px;
 }
 
 .video-item{
-background:#0DBA84;
-position:relative;
-min-height:120px;
-overflow:hidden;
+  background:#0a0f18;
+  position:relative;
+  overflow:hidden;
+  height:135px;
 }
 
 .video-item iframe{
-width:100%;
-height:100%;
-border:none;
-aspect-ratio:auto;
+  display:block;
+  width:100%;
+  height:100%;
+  border:none;
 }
 
 .video-tag{
-display:none;
+  display:none;
 }
 
   /* PLANS */
@@ -529,33 +529,64 @@ display:none;
     </div>
   </div>
 
-  <!-- 6 VÍDEOS -->
-  <div class="video-grid">
+<!-- 6 VÍDEOS -->
+<div class="video-grid">
+
     <div class="video-item">
-      <iframe src="https://player.vimeo.com/video/859917637?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      <div class="video-tag">Visita Virtual</div>
+        <iframe
+        src="https://player.vimeo.com/video/859917637?autoplay=0&title=0&byline=0&portrait=0"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; fullscreen; picture-in-picture">
+        </iframe>
     </div>
+
     <div class="video-item">
-      <iframe src="https://player.vimeo.com/video/957415284?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      <div class="video-tag">Entrega de Chaves DF</div>
+        <iframe
+        src="https://player.vimeo.com/video/957415284?autoplay=0&title=0&byline=0&portrait=0"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; fullscreen; picture-in-picture">
+        </iframe>
     </div>
+
     <div class="video-item">
-      <iframe src="https://player.vimeo.com/video/811331261?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      <div class="video-tag">Lançamento</div>
+        <iframe
+        src="https://player.vimeo.com/video/811331261?autoplay=0&title=0&byline=0&portrait=0"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; fullscreen; picture-in-picture">
+        </iframe>
     </div>
+
     <div class="video-item">
-      <iframe src="https://player.vimeo.com/video/941605049?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      <div class="video-tag">Entrega de Chaves SPI</div>
+        <iframe
+        src="https://player.vimeo.com/video/941605049?autoplay=0&title=0&byline=0&portrait=0"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; fullscreen; picture-in-picture">
+        </iframe>
     </div>
+
     <div class="video-item">
-      <iframe src="https://player.vimeo.com/video/487195187?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      <div class="video-tag">Intervenção Urbana</div>
+        <iframe
+        src="https://player.vimeo.com/video/487195187?autoplay=0&title=0&byline=0&portrait=0"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; fullscreen; picture-in-picture">
+        </iframe>
     </div>
+
     <div class="video-item">
-      <iframe src="https://player.vimeo.com/video/1013176073?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      <div class="video-tag">Entrega de Chaves SP</div>
+        <iframe
+        src="https://player.vimeo.com/video/1013176073?autoplay=0&title=0&byline=0&portrait=0"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; fullscreen; picture-in-picture">
+        </iframe>
     </div>
-  </div>
+
+</div>
 </section>
 
 <!-- PLANOS -->
