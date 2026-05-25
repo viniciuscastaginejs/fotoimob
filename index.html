@@ -129,101 +129,56 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     Linha 3: [1-2] | [3-4] | [5-6]
     Linha 4: [1-3] grande | [4] estreita | [5-6]
   */
+
 .portfolio-grid{
 display:grid;
-grid-template-columns:repeat(6,1fr);
-grid-auto-rows:150px;
-grid-auto-flow:dense;
+grid-template-columns:repeat(5,1fr);
+grid-auto-rows:220px;
 gap:3px;
 margin-top:48px;
 }
 
-.port-item:nth-child(1){grid-column:1/3;grid-row:span 2;}
-.port-item:nth-child(2){grid-column:3/4;}
-.port-item:nth-child(3){grid-column:4/7;grid-row:span 2;}
+.port-item{
+background:#0a0f18;
+position:relative;
+overflow:hidden;
+}
 
-.port-item:nth-child(4){grid-column:1/4;}
-.port-item:nth-child(5){grid-column:4/5;}
-.port-item:nth-child(6){grid-column:5/7;}
-
-.port-item:nth-child(7){grid-column:1/3;}
-.port-item:nth-child(8){grid-column:3/4;}
-.port-item:nth-child(9){grid-column:4/5;}
-
-.port-item:nth-child(10){grid-column:5/7;grid-row:span 2;}
-
-.port-item:nth-child(11){grid-column:1/2;}
-.port-item:nth-child(12){grid-column:1/3;grid-row:span 2;}
-
-.port-item:nth-child(13){grid-column:3/4;}
-.port-item:nth-child(14){grid-column:4/5;}
-.port-item:nth-child(15){grid-column:5/7;}
-  .port-item {
-    background: #0a0f18;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
- .port-item img{
+.port-item img{
 position:absolute;
 inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
 object-position:center;
-z-index:1;
-transition:transform .5s ease;
+display:block;
 }
-.port-item:nth-child(1) img{object-position:center;}
-.port-item:nth-child(2) img{object-position:center;}
-.port-item:nth-child(3) img{object-position:center;}
-.port-item:nth-child(4) img{object-position:center;}
-.port-item:nth-child(5) img{object-position:center;}
-.port-item:nth-child(6) img{object-position:center;}
-.port-item:nth-child(7) img{object-position:center;}
-.port-item:nth-child(8) img{object-position:center;}
-.port-item:nth-child(9) img{object-position:center;}
-.port-item:nth-child(10) img{object-position:center;}
-.port-item:nth-child(11) img{object-position:center;}
-.port-item:nth-child(12) img{object-position:center;}
-.port-item:nth-child(13) img{object-position:center;}
-.port-item:nth-child(14) img{object-position:center;}
-.port-item:nth-child(15) img{object-position:center;}
-  .port-item:hover img { transform: scale(1.04); }
-  .port-item-overlay {
-    position: absolute; inset: 0; z-index: 2;
-    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 50%);
-    opacity: 0; transition: opacity 0.4s;
-    display: flex; align-items: flex-end; padding: 14px;
-  }
-  .port-item:hover .port-item-overlay { opacity: 1; }
-  .port-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; line-height: 1.4; }
 
-  /* VIDEO GRID */
-  .video-grid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:3px;
-  margin-top:3px;
+.video-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:3px;
+margin-top:3px;
 }
 
 .video-item{
-  background:#0a0f18;
-  position:relative;
-  overflow:hidden;
-  height:135px;
+background:#0a0f18;
+position:relative;
+overflow:hidden;
+height:180px;
 }
 
 .video-item iframe{
-  display:block;
-  width:100%;
-  height:100%;
-  border:none;
+display:block;
+width:100%;
+height:100%;
+border:none;
 }
 
 .video-tag{
-  display:none;
+display:none;
 }
+ 
 
   /* PLANS */
   .plans-section { padding: 100px 48px; background: var(--surface); }
@@ -489,29 +444,41 @@ transition:transform .5s ease;
   <p class="section-sub reveal reveal-delay-2">Seu cliente vai se sentir valorizado.</p>
 
   <!-- 15 FOTOS em grid assimétrico (4 linhas × 6 colunas) -->
+
 <div class="portfolio-grid">
 
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470701/11-Decorado2_b9ln1d.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg"></div>
 
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg"></div>
 
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg"></div>
 
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471371/6-Decorado_ixhmcs.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg"></div>
 
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg"></div>
+
 <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg"></div>
 
 </div>
+
 <!-- 6 VÍDEOS -->
 <div class="video-grid">
 
