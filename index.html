@@ -129,34 +129,32 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     Linha 3: [1-2] | [3-4] | [5-6]
     Linha 4: [1-3] grande | [4] estreita | [5-6]
   */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 220px);
-    gap: 3px;
-    margin-top: 48px;
-  }
+ .portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  grid-template-rows:repeat(7,120px);
+  gap:3px;
+  margin-top:48px;
+}
 
-  /* Linha 1 */
-  .port-item:nth-child(1) { grid-column: 1 / 4; grid-row: 1; }
-  .port-item:nth-child(2) { grid-column: 4 / 5; grid-row: 1; }
-  .port-item:nth-child(3) { grid-column: 5 / 7; grid-row: 1; }
+.port-item:nth-child(1){grid-column:1/4;grid-row:1/3;}
+.port-item:nth-child(2){grid-column:4/5;grid-row:1/2;}
+.port-item:nth-child(3){grid-column:5/7;grid-row:1/3;}
+.port-item:nth-child(4){grid-column:4/5;grid-row:2/3;}
 
-  /* Linha 2 */
-  .port-item:nth-child(4) { grid-column: 1 / 4; grid-row: 2; }
-  .port-item:nth-child(5) { grid-column: 4 / 5; grid-row: 2; }
-  .port-item:nth-child(6) { grid-column: 5 / 7; grid-row: 2; }
+.port-item:nth-child(5){grid-column:1/4;grid-row:3/4;}
+.port-item:nth-child(6){grid-column:4/5;grid-row:3/4;}
+.port-item:nth-child(7){grid-column:5/7;grid-row:3/4;}
 
-  /* Linha 3 */
-  .port-item:nth-child(7)  { grid-column: 1 / 3; grid-row: 3; }
-  .port-item:nth-child(8)  { grid-column: 3 / 5; grid-row: 3; }
-  .port-item:nth-child(9)  { grid-column: 5 / 7; grid-row: 3; }
+.port-item:nth-child(8){grid-column:1/2;grid-row:4/5;}
+.port-item:nth-child(9){grid-column:2/3;grid-row:4/6;}
+.port-item:nth-child(10){grid-column:3/7;grid-row:4/6;}
+.port-item:nth-child(11){grid-column:1/2;grid-row:5/6;}
 
-  /* Linha 4 */
-  .port-item:nth-child(10) { grid-column: 1 / 4; grid-row: 4; }
-  .port-item:nth-child(11) { grid-column: 4 / 5; grid-row: 4; }
-  .port-item:nth-child(12) { grid-column: 5 / 7; grid-row: 4; }
-
+.port-item:nth-child(12){grid-column:1/4;grid-row:6/8;}
+.port-item:nth-child(13){grid-column:4/5;grid-row:6/7;}
+.port-item:nth-child(14){grid-column:4/5;grid-row:7/8;}
+.port-item:nth-child(15){grid-column:5/7;grid-row:6/8;}
   .port-item {
     background: #0a0f18;
     position: relative;
@@ -470,65 +468,70 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   <h2 class="reveal reveal-delay-1">Imagens que contam histórias e mostram<br>organização, evolução e <em>credibilidade.</em></h2>
   <p class="section-sub reveal reveal-delay-2">Seu cliente vai se sentir valorizado.</p>
 
-  <!-- 12 FOTOS em grid assimétrico (4 linhas × 6 colunas) -->
-  <div class="portfolio-grid">
-    <!-- Linha 1 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg" alt="Evolução de Obra" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Evolução de Obra</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779733582/Fachadas2_q3gvxe.jpg" alt="Fotografia de Fachada" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Fotografia de Fachada</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779733583/13-Fotografia_Panora%CC%82mica2_qe4fga.jpg" alt="Imagens Aéreas" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Imagens Aéreas</span></div>
-    </div>
+  <!-- 15 FOTOS em grid assimétrico (4 linhas × 6 colunas) -->
+<div class="portfolio-grid">
 
-    <!-- Linha 2 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg" alt="Evolução Áreas Externas" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Evolução Áreas Externas</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg" alt="Fotografia de Fachada" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Fotografia de Fachada</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471371/6-Decorado_ixhmcs.jpg" alt="Decorado" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Decorado</span></div>
-    </div>
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg">
+</div>
 
-    <!-- Linha 3 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg" alt="Áreas Comuns" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Áreas Comuns</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg" alt="Evolução Áreas Internas" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Evolução Áreas Internas</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg" alt="Evolução de Unidades" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Evolução de Unidades</span></div>
-    </div>
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471371/6-Decorado_ixhmcs.jpg">
+</div>
 
-    <!-- Linha 4 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg" alt="Áreas Comuns" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Áreas Comuns</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470701/11-Decorado2_b9ln1d.jpg" alt="Decorado" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Decorado</span></div>
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779733590/12-Fotografia_Corporativa_1_a6xbzj.jpg" alt="Fotografia Corporativa" loading="lazy">
-      <div class="port-item-overlay"><span class="port-label">Fotografia Corporativa</span></div>
-    </div>
-  </div>
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470696/3-Fotografia_Fachada2_n9jqfa.jpg">
+</div>
 
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470701/11-Decorado2_b9ln1d.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg">
+</div>
+
+<div class="port-item">
+<img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg">
+</div>
+
+</div>
 <!-- 6 VÍDEOS -->
 <div class="video-grid">
 
