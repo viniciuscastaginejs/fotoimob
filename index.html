@@ -182,10 +182,30 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   .port-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; line-height: 1.4; }
 
   /* VIDEO GRID */
-  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 3px; }
-  .video-item { background: var(--surface2); position: relative; overflow: hidden; }
-  .video-item iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
-  .video-tag { padding: 10px 14px; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); background: var(--surface2); border-top: 1px solid var(--border-subtle); }
+  .video-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:3px;
+margin-top:3px;
+}
+
+.video-item{
+background:#0DBA84;
+position:relative;
+min-height:120px;
+overflow:hidden;
+}
+
+.video-item iframe{
+width:100%;
+height:100%;
+border:none;
+aspect-ratio:auto;
+}
+
+.video-tag{
+display:none;
+}
 
   /* PLANS */
   .plans-section { padding: 100px 48px; background: var(--surface); }
@@ -458,11 +478,11 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
       <div class="port-item-overlay"><span class="port-label">Evolução de Obra</span></div>
     </div>
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg" alt="Fotografia de Fachada" loading="lazy">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779733582/Fachadas2_q3gvxe.jpg" alt="Fotografia de Fachada" loading="lazy">
       <div class="port-item-overlay"><span class="port-label">Fotografia de Fachada</span></div>
     </div>
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg" alt="Imagens Aéreas" loading="lazy">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779733583/13-Fotografia_Panora%CC%82mica2_qe4fga.jpg" alt="Imagens Aéreas" loading="lazy">
       <div class="port-item-overlay"><span class="port-label">Imagens Aéreas</span></div>
     </div>
 
@@ -504,7 +524,7 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
       <div class="port-item-overlay"><span class="port-label">Decorado</span></div>
     </div>
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg" alt="Fotografia Corporativa" loading="lazy">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1779733590/12-Fotografia_Corporativa_1_a6xbzj.jpg" alt="Fotografia Corporativa" loading="lazy">
       <div class="port-item-overlay"><span class="port-label">Fotografia Corporativa</span></div>
     </div>
   </div>
