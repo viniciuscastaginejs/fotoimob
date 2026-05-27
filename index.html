@@ -157,25 +157,46 @@
     background:#0a0f18;
   }
 
-  /* Posicionamento individual */
-  .port-item:nth-child(1) { grid-column:1/3; grid-row:1/3; }   /* aérea condomínio — GRANDE */
-  .port-item:nth-child(2) { grid-column:3;   grid-row:1; }      /* sala escritório */
-  .port-item:nth-child(3) { grid-column:4/6; grid-row:1; }      /* prédio vidro — larga */
-  .port-item:nth-child(4) { grid-column:3;   grid-row:2; }      /* quarto vazio */
-  .port-item:nth-child(5) { grid-column:4;   grid-row:2; }      /* prédio noturno */
-  .port-item:nth-child(6) { grid-column:5;   grid-row:2; }      /* sala ampla */
-  .port-item:nth-child(7) { grid-column:1/3; grid-row:3; }      /* aérea baía — larga */
-  .port-item:nth-child(8) { grid-column:3;   grid-row:3; }      /* café/cowork */
-  .port-item:nth-child(9) { grid-column:3;   grid-row:4; }      /* preto-branco obra */
-  .port-item:nth-child(10){ grid-column:1/3; grid-row:4; }      /* mapa aéreo — ocupa col1+2 (elimina vazio) */
-  .port-item:nth-child(11){ grid-column:4/6; grid-row:3/5; }    /* sala moderna — GRANDE */
-  .port-item:nth-child(12){ grid-column:1/3; grid-row:5; }      /* mansão — larga */
-  .port-item:nth-child(13){ grid-column:3;   grid-row:5; }      /* sala pendentes */
-  .port-item:nth-child(14){ grid-column:4;   grid-row:5; }      /* fachada */
-  .port-item:nth-child(15){ grid-column:5;   grid-row:5; }      /* condomínio piscina */
+  /*
+    LAYOUT FINAL — 5 colunas × 5 linhas de 200px cada:
 
-  /* Foto 2 precisa de row 4 (que fica entre 7 e 12 sem foto) — preenche col 2 row 4 */
-  /* Col 2 row 4 fica vazio mas o grid auto preenche com o background */
+    Foto 1  (aérea condomínio)  col 1/3  row 1/3  → grande 2×2
+    Foto 2  (sala decorado)     col 3    row 1
+    Foto 3  (prédio vidro VERT) col 4/6  row 1/3  → 2 cols × 2 rows = 400px altura: APARECE INTEIRO EM PÉ
+    Foto 4  (quarto vazio)      col 3    row 2
+    Foto 5  (prédio noturno)    col 4    row 3
+    Foto 6  (sala ampla)        col 5    row 3
+    Foto 7  (aérea ilha)        col 1/3  row 3    → 2 cols × 1 row = DEITADA, aparece inteira
+    Foto 8  (café cowork)       col 3    row 3
+    Foto 9  (preto-branco)      col 3    row 4
+    Foto 10 (mapa aéreo)        col 1/3  row 4    → 2 cols, sem vazio
+    Foto 11 (sala moderna)      col 4/6  row 4/6  → grande 2×2
+    Foto 12 (mansão)            col 1/3  row 5    → larga
+    Foto 13 (sala pendentes)    col 3    row 5
+    Foto 14 (fachada)           col 4    row 5
+    Foto 15 (piscina)           col 5    row 5
+
+    Verificação de sobreposições:
+    - col3 row3: foto 8 — único ocupante ✓
+    - col4/5 row1/2: foto 3 — único ✓
+    - col4/5 row3: foto 5 + foto 6 — col4=foto5, col5=foto6 ✓
+    - col4/5 row4/5: foto 11 — único ✓
+  */
+  .port-item:nth-child(1)  { grid-column:1/3; grid-row:1/3; }
+  .port-item:nth-child(2)  { grid-column:3;   grid-row:1;   }
+  .port-item:nth-child(3)  { grid-column:4/6; grid-row:1/3; }
+  .port-item:nth-child(4)  { grid-column:3;   grid-row:2;   }
+  .port-item:nth-child(5)  { grid-column:4;   grid-row:3;   }
+  .port-item:nth-child(6)  { grid-column:5;   grid-row:3;   }
+  .port-item:nth-child(7)  { grid-column:1/3; grid-row:3;   }
+  .port-item:nth-child(8)  { grid-column:3;   grid-row:3;   }
+  .port-item:nth-child(9)  { grid-column:3;   grid-row:4;   }
+  .port-item:nth-child(10) { grid-column:1/3; grid-row:4;   }
+  .port-item:nth-child(11) { grid-column:4/6; grid-row:4/6; }
+  .port-item:nth-child(12) { grid-column:1/3; grid-row:5;   }
+  .port-item:nth-child(13) { grid-column:3;   grid-row:5;   }
+  .port-item:nth-child(14) { grid-column:4;   grid-row:5;   }
+  .port-item:nth-child(15) { grid-column:5;   grid-row:5;   }
 
   .port-item img{
     position:absolute;inset:0;width:100%;height:100%;
@@ -183,9 +204,14 @@
     transition:transform .5s ease;
     will-change:transform;
   }
-  /* Foto 3 é vertical (prédio em pé) — mostrar do topo para aparecer ereto */
-  .port-item:nth-child(3) img{ object-position:center top; }
-  .port-item:hover img{transform:scale(1.05)}
+  /* Prédio vertical (foto 3): contain para aparecer INTEIRO em pé, sem corte */
+  .port-item:nth-child(3) img{
+    object-fit:contain;
+    object-position:center center;
+  }
+  /* Ilha aérea (foto 7): deitada, cover normal */
+  .port-item:nth-child(7) img{ object-position:center center; }
+  .port-item:hover img{transform:scale(1.04)}
 
   /* Overlay hover sutil */
   .port-item::after{
