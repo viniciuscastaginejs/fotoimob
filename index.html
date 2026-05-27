@@ -128,6 +128,7 @@
     columns: 3;
     column-gap: 4px;
     margin-top:48px;
+    /* Sem altura fixa — colunas crescem com as fotos, sem espaço preto */
   }
 
   .port-item{
@@ -135,6 +136,7 @@
     margin-bottom: 4px;
     overflow: hidden;
     display: block;
+    position: relative;
   }
 
   .port-item img{
@@ -428,99 +430,107 @@
   <p class="section-sub">Seu cliente vai se sentir valorizado.</p>
 
   <!--
-    Grid 5 colunas × 5 linhas — layout assimétrico igual ao print de referência.
-    Cloudinary: f_auto,q_auto = formato e qualidade automáticos (WebP/AVIF)
-    Tamanho w_ ajustado por slot: grandes=1200, médias=600, pequenas=400
+    ORDEM ESTRATÉGICA para 3 colunas masonry equilibradas:
+    O CSS columns distribui da esquerda p/ direita, de cima p/ baixo.
+    Intercalamos fotos grandes (landscape) e pequenas (portrait/square)
+    para que as 3 colunas terminem na mesma altura.
+
+    Col 1: foto1(H grande) + foto4(H) + foto7(H) + foto10(H) + foto13(H)
+    Col 2: foto2(H) + foto5(H grande) + foto8(H) + foto11(H grande) + foto14(H)
+    Col 3: foto3(V alto) + foto6(H) + foto9(V) + foto12(H grande) + foto15(H)
   -->
   <div class="portfolio-grid">
 
-    <!-- 1: Aérea condomínio — GRANDE col1-2 row1-2 -->
+    <!-- COL 1 -->
+    <!-- 1: Aérea ilha — landscape panorâmica -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1200,f_auto,q_auto/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg"
-           alt="Imagens Aéreas" loading="lazy" decoding="async">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg"
+           alt="Aérea Ilha" loading="lazy" decoding="async">
     </div>
 
-    <!-- 2: Sala/escritório — col3 row1 -->
+    <!-- 4: Sala decorado landscape -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470701/11-Decorado2_b9ln1d.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471371/6-Decorado_ixhmcs.jpg"
            alt="Decorado" loading="lazy" decoding="async">
     </div>
 
-    <!-- 3: Prédio vidro — larga col4-5 row1 -->
+    <!-- 7: Prédio noturno landscape -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1000,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg"
-           alt="Fotografia Fachada" loading="lazy" decoding="async">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg"
+           alt="Prédio Noturno" loading="lazy" decoding="async">
     </div>
 
-    <!-- 4: Quarto vazio — col3 row2 -->
+    <!-- 10: Mansão landscape -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg"
-           alt="Fotografia Panorâmica" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 5: Prédio noturno — col4 row2 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg"
-           alt="Fotografia Fachada" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 6: Sala ampla — col5 row2 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg"
-           alt="Evolução Unidades" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 7: Aérea baía — larga col1-2 row3 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1000,f_auto,q_auto/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg"
-           alt="Evolução Áreas Internas" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 8: Café/cowork — col3 row3 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg"
-           alt="Áreas Comuns" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 9: Preto-branco obra — col3 row4 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg"
-           alt="Fotografia Corporativa" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 10: Mapa aéreo — col1 row4 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779471371/6-Decorado_ixhmcs.jpg"
-           alt="Decorado" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 11: Sala moderna — GRANDE col4-5 row3-4 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1200,f_auto,q_auto/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg"
-           alt="Mapa Aéreo" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 12: Mansão — larga col1-2 row5 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1000,f_auto,q_auto/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg"
            alt="Imóvel Alto Padrão" loading="lazy" decoding="async">
     </div>
 
-    <!-- 13: Sala pendentes — col3 row5 -->
+    <!-- 13: Evolução obra landscape -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg"
-           alt="Áreas Comuns" loading="lazy" decoding="async">
-    </div>
-
-    <!-- 14: Fachada — col4 row5 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg"
            alt="Evolução da Obra" loading="lazy" decoding="async">
     </div>
 
-    <!-- 15: Condomínio piscina — col5 row5 -->
+    <!-- COL 2 -->
+    <!-- 2: Sala moderna landscape -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470701/11-Decorado2_b9ln1d.jpg"
+           alt="Decorado" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 5: Aérea condomínio — grande landscape -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg"
+           alt="Imagens Aéreas" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 8: Café cowork landscape -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg"
+           alt="Áreas Comuns" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 11: Mapa aéreo landscape grande -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg"
+           alt="Mapa Aéreo" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 14: Áreas comuns landscape -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg"
+           alt="Áreas Comuns" loading="lazy" decoding="async">
+    </div>
+
+    <!-- COL 3 -->
+    <!-- 3: Prédio vidro vertical — portrait, aparece inteiro em pé -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg"
+           alt="Fotografia Fachada" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 6: Evolução unidades landscape -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg"
+           alt="Evolução Unidades" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 9: Preto e branco obra — portrait -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg"
+           alt="Fotografia Corporativa" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 12: Panorâmica landscape -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg"
+           alt="Fotografia Panorâmica" loading="lazy" decoding="async">
+    </div>
+
+    <!-- 15: Áreas externas landscape -->
+    <div class="port-item">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg"
            alt="Evolução Áreas Externas" loading="lazy" decoding="async">
     </div>
 
