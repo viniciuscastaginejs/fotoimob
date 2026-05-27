@@ -197,10 +197,10 @@
     transition:transform .5s ease;
     will-change:transform;
   }
-  /* Prédio vertical (foto 3): contain para aparecer INTEIRO em pé, sem corte */
+  /* Prédio vertical (foto 3): cover + top — preenche sem borda preta, aparece em pé */
   .port-item:nth-child(3) img{
-    object-fit:contain;
-    object-position:center center;
+    object-fit:cover;
+    object-position:center top;
   }
   /* Ilha aérea (foto 7): deitada, cover normal */
   .port-item:nth-child(7) img{ object-position:center center; }
