@@ -145,7 +145,7 @@
   */
   .portfolio-grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(4,1fr);
     grid-template-rows:repeat(5,200px);
     gap:3px;
     margin-top:48px;
@@ -175,22 +175,23 @@
     col 4    row 5    → foto 14 (fachada)
     col 5    row 5    → foto 15 (piscina)
   */
-  /* Grid 5×4 rows — proporcional às fotos reais */
-  .port-item:nth-child(1)  { grid-column:1/4; grid-row:1;   }  /* Aérea panorâmica — bem larga */
-  .port-item:nth-child(2)  { grid-column:4/6; grid-row:1;   }  /* Decorado H — 2 cols */
-  .port-item:nth-child(3)  { grid-column:5;   grid-row:2/4; }  /* Fachada vertical — alto 2 rows */
-  .port-item:nth-child(4)  { grid-column:1/3; grid-row:2;   }  /* Panorâmica — larga */
-  .port-item:nth-child(5)  { grid-column:3/5; grid-row:2;   }  /* Fachada noturna H — larga */
-  .port-item:nth-child(6)  { grid-column:1/3; grid-row:3;   }  /* Evolução unidades H */
-  .port-item:nth-child(7)  { grid-column:3/5; grid-row:3;   }  /* Áreas internas P — larga */
-  .port-item:nth-child(8)  { grid-column:1;   grid-row:4;   }  /* Áreas comuns H */
-  .port-item:nth-child(9)  { grid-column:2;   grid-row:4;   }  /* Corporativa V — quadrado ok */
-  .port-item:nth-child(10) { grid-column:3/5; grid-row:4;   }  /* Decorado sala H — larga */
-  .port-item:nth-child(11) { grid-column:5;   grid-row:4;   }  /* Mapa aéreo H */
-  .port-item:nth-child(12) { grid-column:1/3; grid-row:5;   }  /* Imóvel alto padrão H — larga */
-  .port-item:nth-child(13) { grid-column:3;   grid-row:5;   }  /* Áreas comuns 2 H */
-  .port-item:nth-child(14) { grid-column:4;   grid-row:5;   }  /* Evolução obra H */
-  .port-item:nth-child(15) { grid-column:5;   grid-row:5;   }  /* Evolução ext H */
+  /* Grid 4 colunas × 5 rows — sem conflito, proporcional */
+  .portfolio-grid { grid-template-columns: repeat(4,1fr) !important; }
+  .port-item:nth-child(1)  { grid-column:1/3; grid-row:1;   }  /* F1  - Aérea P — larga */
+  .port-item:nth-child(2)  { grid-column:3;   grid-row:1;   }  /* F2  - Decorado H */
+  .port-item:nth-child(3)  { grid-column:4;   grid-row:1/3; }  /* F3  - Fachada V — alto */
+  .port-item:nth-child(4)  { grid-column:1;   grid-row:2;   }  /* F4  - Panorâmica P */
+  .port-item:nth-child(5)  { grid-column:2/4; grid-row:2;   }  /* F5  - Fachada noturna H — larga */
+  .port-item:nth-child(6)  { grid-column:1/3; grid-row:3;   }  /* F6  - Evolução unidades H — larga */
+  .port-item:nth-child(7)  { grid-column:3;   grid-row:3;   }  /* F7  - Áreas internas H */
+  .port-item:nth-child(8)  { grid-column:4;   grid-row:3;   }  /* F8  - Áreas comuns H */
+  .port-item:nth-child(9)  { grid-column:1;   grid-row:4;   }  /* F9  - Corporativa V */
+  .port-item:nth-child(10) { grid-column:2;   grid-row:4;   }  /* F10 - Decorado sala H */
+  .port-item:nth-child(11) { grid-column:3/5; grid-row:4;   }  /* F11 - Mapa aéreo H — larga */
+  .port-item:nth-child(12) { grid-column:1/3; grid-row:5;   }  /* F12 - Imóvel alto padrão H — larga */
+  .port-item:nth-child(13) { grid-column:3;   grid-row:5;   }  /* F13 - Áreas comuns 2 H */
+  .port-item:nth-child(14) { grid-column:4;   grid-row:5;   }  /* F14 - Evolução obra H */
+  .port-item:nth-child(15) { grid-column:2;   grid-row:5;   }  /* F15 - Evolução ext H */
 
   .port-item img{
     position:absolute;inset:0;width:100%;height:100%;
@@ -284,7 +285,7 @@
   .testimonials-section{padding:100px 48px;background:var(--surface);position:relative;overflow:hidden}
   .testimonials-section::before{content:'';position:absolute;inset:0;z-index:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(201,146,42,.02) 60px,rgba(201,146,42,.02) 61px);pointer-events:none}
   .testimonials-section>*{position:relative;z-index:1}
-  .logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:56px}
+  .logos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px}
   .logo-item{background:var(--card-bg);border:1px solid var(--border-subtle);padding:28px 20px;display:flex;align-items:center;justify-content:center;min-height:100px;box-shadow:var(--shadow);transition:all .3s}
   .logo-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--border)}
   .logo-item img{max-width:130px;max-height:52px;object-fit:contain;filter:grayscale(100%) invert(1);opacity:.5;transition:filter .3s,opacity .3s}
@@ -517,13 +518,13 @@
 
     <!-- 3: Prédio vidro — larga col4-5 row1 -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1000,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1000,f_auto,q_auto/v1779883550/Fachadas2_1_zzyrhz.jpg"
            alt="Fotografia Fachada" loading="lazy" decoding="async">
     </div>
 
     <!-- 4: Quarto vazio — col3 row2 -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779883549/13-Fotografia_Panora%CC%82mica2_2_bgpvwx.jpg"
            alt="Fotografia Panorâmica" loading="lazy" decoding="async">
     </div>
 
@@ -553,7 +554,7 @@
 
     <!-- 9: Preto-branco obra — col3 row4 -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779883550/12-Fotografia_Corporativa_2_yii5ji.jpg"
            alt="Fotografia Corporativa" loading="lazy" decoding="async">
     </div>
 
