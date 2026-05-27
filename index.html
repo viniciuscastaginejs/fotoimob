@@ -124,91 +124,28 @@
   /* ===== PORTFOLIO ===== */
   .portfolio-section{padding:100px 48px;background:var(--surface)}
 
-  /*
-    GRID ASSIMÉTRICO — 5 colunas, replicando o layout do print de referência.
-    
-    Foto 1  (aérea condomínio grande)  → col 1-2, row 1-2
-    Foto 2  (sala/escritório)           → col 3,   row 1
-    Foto 3  (prédio vidro)              → col 4-5, row 1
-    Foto 4  (quarto vazio)              → col 3,   row 2
-    Foto 5  (prédio noturno)            → col 4,   row 2
-    Foto 6  (sala ampla/vazia)          → col 5,   row 2
-    Foto 7  (aérea baía)               → col 1-2, row 3
-    Foto 8  (café/cowork)              → col 3,   row 3
-    Foto 9  (preto-branco/obra)        → col 3,   row 4
-    Foto 10 (mapa aéreo)               → col 1,   row 4
-    Foto 11 (sala moderna grande)      → col 4-5, row 3-4
-    Foto 12 (mansão)                   → col 1-2, row 5
-    Foto 13 (sala pendentes)           → col 3,   row 5
-    Foto 14 (fachada)                  → col 4,   row 5
-    Foto 15 (condomínio piscina)       → col 5,   row 5
-  */
   .portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    grid-template-rows:repeat(5,200px);
-    gap:3px;
+    columns: 3;
+    column-gap: 4px;
     margin-top:48px;
   }
 
   .port-item{
-    position:relative;
-    overflow:hidden;
-    background:#0a0f18;
+    break-inside: avoid;
+    margin-bottom: 4px;
+    overflow: hidden;
+    display: block;
   }
-
-  /*
-    LAYOUT CORRIGIDO — 5 colunas × 5 linhas de 200px:
-
-    col 1/3  row 1/3  → foto 1  (aérea condomínio — 2×2 grande)
-    col 3/5  row 1    → foto 2  (sala decorado — larga, sem borda preta)
-    col 5/6  row 1/3  → foto 3  (prédio vertical — 1 col × 2 rows, em pé)
-    col 3/5  row 2    → foto 7  (ilha aérea — larga 2 cols, mostra mais)
-    col 1/3  row 3    → foto 4  (sala vazia — 2 cols)
-    col 3/5  row 3    → foto 8  (café cowork — 2 cols)
-    col 5    row 3    → foto 5  (prédio noturno)
-    col 1/3  row 4    → foto 10 (mapa aéreo — 2 cols)
-    col 3    row 4    → foto 9  (preto-branco)
-    col 4/6  row 3/5  → foto 11 (sala moderna — 2×2 grande)
-    col 1/3  row 5    → foto 12 (mansão — larga)
-    col 3    row 5    → foto 13 (sala pendentes)
-    col 4    row 5    → foto 14 (fachada)
-    col 5    row 5    → foto 15 (piscina)
-  */
-  /* Grid 4 colunas × 5 rows — sem conflito, proporcional */
-  .portfolio-grid { grid-template-columns: repeat(4,1fr) !important; }
-  .port-item:nth-child(1)  { grid-column:1/3; grid-row:1;   }  /* F1  - Aérea P — larga */
-  .port-item:nth-child(2)  { grid-column:3;   grid-row:1;   }  /* F2  - Decorado H */
-  .port-item:nth-child(3)  { grid-column:4;   grid-row:1/3; }  /* F3  - Fachada V — alto */
-  .port-item:nth-child(4)  { grid-column:1;   grid-row:2;   }  /* F4  - Panorâmica P */
-  .port-item:nth-child(5)  { grid-column:2/4; grid-row:2;   }  /* F5  - Fachada noturna H — larga */
-  .port-item:nth-child(6)  { grid-column:1/3; grid-row:3;   }  /* F6  - Evolução unidades H — larga */
-  .port-item:nth-child(7)  { grid-column:3;   grid-row:3;   }  /* F7  - Áreas internas H */
-  .port-item:nth-child(8)  { grid-column:4;   grid-row:3;   }  /* F8  - Áreas comuns H */
-  .port-item:nth-child(9)  { grid-column:1;   grid-row:4;   }  /* F9  - Corporativa V */
-  .port-item:nth-child(10) { grid-column:2;   grid-row:4;   }  /* F10 - Decorado sala H */
-  .port-item:nth-child(11) { grid-column:3/5; grid-row:4;   }  /* F11 - Mapa aéreo H — larga */
-  .port-item:nth-child(12) { grid-column:1/3; grid-row:5;   }  /* F12 - Imóvel alto padrão H — larga */
-  .port-item:nth-child(13) { grid-column:3;   grid-row:5;   }  /* F13 - Áreas comuns 2 H */
-  .port-item:nth-child(14) { grid-column:4;   grid-row:5;   }  /* F14 - Evolução obra H */
-  .port-item:nth-child(15) { grid-column:2;   grid-row:5;   }  /* F15 - Evolução ext H */
 
   .port-item img{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;object-position:center;display:block;
-    transition:transform .5s ease;
-    will-change:transform;
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform .5s ease;
+    will-change: transform;
   }
-  /* Prédio vertical (foto 3): cover + top — preenche sem borda preta, aparece em pé */
-  .port-item:nth-child(3) img{
-    object-fit:cover;
-    object-position:center top;
-  }
-  /* Ilha aérea (foto 7): deitada, cover normal */
-  .port-item:nth-child(7) img{ object-position:center center; }
-  .port-item:hover img{transform:scale(1.04)}
+  .port-item:hover img{ transform: scale(1.02); }
 
-  /* Overlay hover sutil */
   .port-item::after{
     content:'';position:absolute;inset:0;
     background:linear-gradient(to top,rgba(201,146,42,.15) 0%,transparent 50%);
@@ -285,7 +222,7 @@
   .testimonials-section{padding:100px 48px;background:var(--surface);position:relative;overflow:hidden}
   .testimonials-section::before{content:'';position:absolute;inset:0;z-index:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(201,146,42,.02) 60px,rgba(201,146,42,.02) 61px);pointer-events:none}
   .testimonials-section>*{position:relative;z-index:1}
-  .logos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px}
+  .logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:56px}
   .logo-item{background:var(--card-bg);border:1px solid var(--border-subtle);padding:28px 20px;display:flex;align-items:center;justify-content:center;min-height:100px;box-shadow:var(--shadow);transition:all .3s}
   .logo-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--border)}
   .logo-item img{max-width:130px;max-height:52px;object-fit:contain;filter:grayscale(100%) invert(1);opacity:.5;transition:filter .3s,opacity .3s}
@@ -358,15 +295,9 @@
     .contact-section{padding:60px 20px;grid-template-columns:1fr;gap:36px}
     .contact-info{padding-right:0}
     .services-grid{grid-template-columns:1fr;gap:12px}
-    /* Portfolio mobile — grid simples 2 colunas */
-    .portfolio-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      grid-template-rows:none;
-      grid-auto-rows:150px;
-    }
-    .port-item:nth-child(n){grid-column:auto!important;grid-row:auto!important}
-    .port-item:nth-child(1),.port-item:nth-child(7),.port-item:nth-child(12){grid-column:span 2!important}
+    /* Portfolio mobile — 2 colunas masonry */
+    .portfolio-grid{ columns:2; column-gap:3px; }
+    .port-item{ margin-bottom:3px; }
     .video-grid{grid-template-columns:repeat(2,1fr)}
     .plans-grid{grid-template-columns:1fr;gap:16px}
     .diff-section{grid-template-columns:1fr;padding:60px 20px;gap:40px}
@@ -383,8 +314,7 @@
     h1{font-size:1.8rem}
     .hero-left{padding:90px 16px 24px}
     .hero-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px}
-    .portfolio-grid{grid-auto-rows:130px}
-    .port-item:nth-child(1),.port-item:nth-child(7),.port-item:nth-child(12){grid-column:span 2!important}
+    .portfolio-grid{ columns:2; }
     .video-grid{grid-template-columns:1fr}
     .logos-grid{grid-template-columns:repeat(2,1fr)}
     .section,.plans-section,.portfolio-section,.testimonials-section{padding:48px 16px}
@@ -518,13 +448,13 @@
 
     <!-- 3: Prédio vidro — larga col4-5 row1 -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1000,f_auto,q_auto/v1779883550/Fachadas2_1_zzyrhz.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1000,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg"
            alt="Fotografia Fachada" loading="lazy" decoding="async">
     </div>
 
     <!-- 4: Quarto vazio — col3 row2 -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779883549/13-Fotografia_Panora%CC%82mica2_2_bgpvwx.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg"
            alt="Fotografia Panorâmica" loading="lazy" decoding="async">
     </div>
 
@@ -554,7 +484,7 @@
 
     <!-- 9: Preto-branco obra — col3 row4 -->
     <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779883550/12-Fotografia_Corporativa_2_yii5ji.jpg"
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_600,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg"
            alt="Fotografia Corporativa" loading="lazy" decoding="async">
     </div>
 
