@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FotoLab | Fotos de Evolução de Obra</title>
-<meta name="description" content="Fotografia profissional de evolução de obra para incorporadoras e construtoras. Mais de 18 anos de experiência no mercado imobiliário do Rio de Janeiro.">
+<title>FotoLab | Fotografia Imobiliária</title>
+<meta name="description" content="Fotografia Imobiliária profissional para incorporadoras e construtoras. Mais de 18 anos de experiência no mercado imobiliário do Rio de Janeiro.">
 
-<!-- DNS prefetch para recursos externos -->
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://res.cloudinary.com">
 <link rel="dns-prefetch" href="https://vumbnail.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
-<!-- Preload imagens críticas do hero -->
 <link rel="preload" as="image" href="https://res.cloudinary.com/dtdomrtyp/image/upload/w_800,f_auto,q_auto/v1779457877/ChavesStilloRJ-2554_1_ls972u.jpg">
 <link rel="preload" as="image" href="https://res.cloudinary.com/dtdomrtyp/image/upload/w_800,f_auto,q_auto/v1779458629/44219032-bf51-4482-8e49-8b88c2aee5a2.png">
 
@@ -51,8 +49,8 @@
     box-shadow:0 2px 20px rgba(0,0,0,0.3);
   }
   .logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .logo-img{height:48px;width:auto;object-fit:contain}
-  .logo-fallback{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;display:none}
+  .logo-img{height:44px;width:auto;object-fit:contain;display:block}
+  .logo-fallback{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.12em;color:#fff;text-transform:uppercase;display:none}
   nav ul{list-style:none;display:flex;gap:36px}
   nav ul a{color:var(--muted);font-size:.78rem;text-decoration:none;letter-spacing:.15em;text-transform:uppercase;transition:color .3s}
   nav ul a:hover{color:var(--gold)}
@@ -121,74 +119,60 @@
   .service-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .3s}
   .service-link:hover{gap:14px}
 
-  /* ===== PORTFOLIO ===== */
-/* ===== PORTFOLIO ===== */
-.portfolio-section{
+  /* ===== PORTFOLIO — masonry fix ===== */
+  .portfolio-section{
     padding:100px 48px;
     background:var(--surface);
-}
+  }
 
-.portfolio-grid{
-    columns:3;
+  .portfolio-grid{
+    column-count:3;
     column-gap:4px;
     margin-top:48px;
-}
+    /* garante que o container não colapsa */
+    width:100%;
+  }
 
-.port-item{
+  .port-item{
     break-inside:avoid;
+    -webkit-column-break-inside:avoid;
+    page-break-inside:avoid;
     margin-bottom:4px;
     overflow:hidden;
     display:block;
     position:relative;
     line-height:0;
-}
+    /* sem altura fixa — deixa imagem determinar */
+  }
 
-.port-item img{
+  .port-item img{
     width:100%;
-    height:auto;
+    height:auto;       /* tamanho natural */
     display:block;
     transition:transform .5s ease;
-}
+  }
 
-.port-item:hover img{
+  .port-item:hover img{
     transform:scale(1.02);
-}
+  }
 
-.port-item::after{
+  .port-item::after{
     content:'';
     position:absolute;
     inset:0;
     background:linear-gradient(
-        to top,
-        rgba(201,146,42,.15) 0%,
-        transparent 50%
+      to top,
+      rgba(201,146,42,.15) 0%,
+      transparent 50%
     );
     opacity:0;
     transition:opacity .4s;
     pointer-events:none;
-}
+  }
 
-.port-item:hover::after{
+  .port-item:hover::after{
     opacity:1;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-    .portfolio-grid{
-        columns:2;
-        column-gap:3px;
-    }
-
-    .port-item{
-        margin-bottom:3px;
-    }
-}
-
-@media(max-width:480px){
-    .portfolio-grid{
-        columns:1;
-    }
-}
+  }
 
   /* VÍDEOS */
   .video-grid{
@@ -226,14 +210,74 @@
   .plan-badge{position:absolute;top:-1px;left:32px;background:var(--gold);color:#0d1117;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:5px 14px;font-weight:500}
   .plan-name{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
   .plan-title{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--dark);text-transform:uppercase}
-  .plan-pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin:24px 0 28px;border:1px solid var(--border-subtle)}
-  .price-col{padding:14px 12px;text-align:center;border-right:1px solid var(--border-subtle);position:relative}
-  .price-col:last-child{border-right:none}
-  .price-col.highlight{background:rgba(201,146,42,.06)}
-  .price-period{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px;display:block}
-  .price-qty{font-size:.72rem;color:var(--gold);font-weight:500;display:block;margin-bottom:2px}
-  .price-val{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:700;color:var(--dark)}
-  .price-val sup{font-size:.65rem;vertical-align:super}
+
+  /* Novo layout de preços: anual em destaque + semestral/pontual embaixo */
+  .plan-pricing{
+    margin:24px 0 28px;
+    border:1px solid var(--border-subtle);
+    overflow:hidden;
+  }
+  .price-annual{
+    padding:16px 20px;
+    background:rgba(201,146,42,.08);
+    border-bottom:1px solid var(--border-subtle);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .price-annual-label{
+    font-size:.6rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .price-annual-qty{
+    font-size:.7rem;
+    color:var(--muted);
+  }
+  .price-annual-val{
+    font-family:'Montserrat',sans-serif;
+    font-size:1.9rem;
+    font-weight:700;
+    color:var(--dark);
+    line-height:1;
+  }
+  .price-annual-val sup{
+    font-size:.7rem;
+    vertical-align:super;
+    font-weight:400;
+    color:var(--muted);
+  }
+  .price-annual-right{
+    text-align:right;
+  }
+  .price-others{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .price-other{
+    padding:10px 14px;
+    border-right:1px solid var(--border-subtle);
+  }
+  .price-other:last-child{border-right:none}
+  .price-other-label{
+    font-size:.55rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--muted2);
+    display:block;
+    margin-bottom:3px;
+  }
+  .price-other-val{
+    font-family:'Montserrat',sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    color:var(--muted);
+  }
+  .price-other-val sup{font-size:.6rem;vertical-align:super;font-weight:400}
+
   .plan-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:20px;flex:1}
   .plan-features li{font-size:.84rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.4}
   .plan-features li::before{content:'';width:14px;height:1px;background:var(--gold);flex-shrink:0;margin-top:9px}
@@ -332,9 +376,8 @@
     .contact-section{padding:60px 20px;grid-template-columns:1fr;gap:36px}
     .contact-info{padding-right:0}
     .services-grid{grid-template-columns:1fr;gap:12px}
-    /* Portfolio mobile — 2 colunas masonry */
-    .portfolio-grid{ columns:2; column-gap:3px; }
-    .port-item{ margin-bottom:3px; }
+    .portfolio-grid{column-count:2;column-gap:3px}
+    .port-item{margin-bottom:3px}
     .video-grid{grid-template-columns:repeat(2,1fr)}
     .plans-grid{grid-template-columns:1fr;gap:16px}
     .diff-section{grid-template-columns:1fr;padding:60px 20px;gap:40px}
@@ -351,7 +394,7 @@
     h1{font-size:1.8rem}
     .hero-left{padding:90px 16px 24px}
     .hero-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px}
-    .portfolio-grid{ columns:2; }
+    .portfolio-grid{column-count:2}
     .video-grid{grid-template-columns:1fr}
     .logos-grid{grid-template-columns:repeat(2,1fr)}
     .section,.plans-section,.portfolio-section,.testimonials-section{padding:48px 16px}
@@ -368,7 +411,10 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo-wrap">
-    <img src="logotipo.png" alt="FotoLab" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1780319017/logo3D-Fotolab-branco_y3hym6.png"
+         alt="FotoLab"
+         class="logo-img"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <span class="logo-fallback">FotoLab</span>
   </a>
   <ul>
@@ -397,7 +443,7 @@
   <div class="hero-left">
     <div class="hero-tag">Fotografia de Evolução de Obra</div>
     <h1>TRANSFORME A EVOLUÇÃO<br>DA SUA OBRA EM VALOR PARA<br><em>SUA MARCA</em></h1>
-    <p class="hero-sub">Imagens profissionais aumentam a percepção de qualidade, organização e confiança no seu EMPREENDIMENTO</p>
+    <p class="hero-sub">Imagens profissionais aumentam a percepção de QUALIDADE, ORGANIZAÇÃO e CONFIANÇA no seu empreendimento.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver Planos</button>
       <button class="btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Ver Cases</button>
@@ -431,8 +477,8 @@
 <!-- SERVIÇOS -->
 <section class="section" id="servicos">
   <div class="section-label">O que oferecemos</div>
-  <h2>Imagens profissionais, que agregam<br>valor ao seu <em style="font-style:normal;color:var(--gold)">empreendimento.</em></h2>
-  <p class="section-sub">Conteúdo de qualidade fortalece a presença digital do seu empreendimento, além de transmitir CREDIBILIDADE, qualidade e confiança na execução da obra.</p>
+  <h2>Imagens profissionais que valorizam o seu negócio</h2>
+  <p class="section-sub">Conteúdo de qualidade fortalece a presença digital do seu empreendimento, além de transmitir CREDIBILIDADE na execução da obra.</p>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-num">01</div>
@@ -461,114 +507,75 @@
 <!-- PORTFÓLIO -->
 <section class="portfolio-section" id="portfolio">
   <div class="section-label">Nosso trabalho</div>
-  <h2>Imagens que contam histórias e mostram<br>organização, evolução e <em style="font-style:normal;color:var(--gold)">credibilidade.</em></h2>
-  <p class="section-sub">Seu cliente vai se sentir valorizado.</p>
+  <h2>IMAGENS QUE CONTAM HISTÓRIAS, MOSTRANDO EVOLUÇÃO E GERANDO CONFIANÇA</h2>
+  <p class="section-sub">Seu cliente se sente valorizado e feliz, por poder acompanhar o andamento da obra do empreendimento que ele adquiriu.</p>
 
-  <!--
-    ORDEM ESTRATÉGICA para 3 colunas masonry equilibradas:
-    O CSS columns distribui da esquerda p/ direita, de cima p/ baixo.
-    Intercalamos fotos grandes (landscape) e pequenas (portrait/square)
-    para que as 3 colunas terminem na mesma altura.
-
-    Col 1: foto1(H grande) + foto4(H) + foto7(H) + foto10(H) + foto13(H)
-    Col 2: foto2(H) + foto5(H grande) + foto8(H) + foto11(H grande) + foto14(H)
-    Col 3: foto3(V alto) + foto6(H) + foto9(V) + foto12(H grande) + foto15(H)
-  -->
   <div class="portfolio-grid">
-
     <!-- COL 1 -->
-    <!-- 1: Aérea ilha — landscape panorâmica -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg"
-           alt="Aérea Ilha" loading="lazy" decoding="async">
+           alt="Áreas Internas" loading="lazy" decoding="async">
     </div>
-
-    <!-- 4: Sala decorado landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471371/6-Decorado_ixhmcs.jpg"
            alt="Decorado" loading="lazy" decoding="async">
     </div>
-
-    <!-- 7: Prédio noturno landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg"
            alt="Prédio Noturno" loading="lazy" decoding="async">
     </div>
-
-    <!-- 10: Mansão landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg"
            alt="Imóvel Alto Padrão" loading="lazy" decoding="async">
     </div>
-
-    <!-- 13: Evolução obra landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg"
            alt="Evolução da Obra" loading="lazy" decoding="async">
     </div>
 
     <!-- COL 2 -->
-    <!-- 2: Sala moderna landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470701/11-Decorado2_b9ln1d.jpg"
            alt="Decorado" loading="lazy" decoding="async">
     </div>
-
-    <!-- 5: Aérea condomínio — grande landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg"
            alt="Imagens Aéreas" loading="lazy" decoding="async">
     </div>
-
-    <!-- 8: Café cowork landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg"
            alt="Áreas Comuns" loading="lazy" decoding="async">
     </div>
-
-    <!-- 11: Mapa aéreo landscape grande -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg"
            alt="Mapa Aéreo" loading="lazy" decoding="async">
     </div>
-
-    <!-- 14: Áreas comuns landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg"
            alt="Áreas Comuns" loading="lazy" decoding="async">
     </div>
 
     <!-- COL 3 -->
-    <!-- 3: Prédio vidro vertical — portrait, aparece inteiro em pé -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg"
            alt="Fotografia Fachada" loading="lazy" decoding="async">
     </div>
-
-    <!-- 6: Evolução unidades landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg"
            alt="Evolução Unidades" loading="lazy" decoding="async">
     </div>
-
-    <!-- 9: Preto e branco obra — portrait -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg"
            alt="Fotografia Corporativa" loading="lazy" decoding="async">
     </div>
-
-    <!-- 12: Panorâmica landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg"
            alt="Fotografia Panorâmica" loading="lazy" decoding="async">
     </div>
-
-    <!-- 15: Áreas externas landscape -->
     <div class="port-item">
       <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg"
            alt="Evolução Áreas Externas" loading="lazy" decoding="async">
     </div>
-
   </div>
 
   <!-- VÍDEOS -->
@@ -592,16 +599,16 @@
       <img src="https://vumbnail.com/1013176073.jpg" alt="Vídeo obra" loading="lazy" decoding="async">
     </a>
   </div>
-
 </section>
 
 <!-- PLANOS -->
 <section class="plans-section" id="planos">
   <div class="section-label">Investimento</div>
-  <h2>Planos para toda <em style="font-style:normal;color:var(--gold)">obra</em></h2>
+  <h2>SUA OBRA ESTÁ NOS NOSSOS <em style="font-style:normal;color:var(--gold)">PLANOS</em></h2>
   <p class="section-sub">Planos desenvolvidos para diferentes perfis de empreendimento, incluindo fotografia aérea e produção de conteúdo estratégico.</p>
   <div class="plans-grid">
 
+    <!-- STANDARD -->
     <div class="plan-card">
       <div class="plan-header">
         <div>
@@ -610,9 +617,24 @@
         </div>
       </div>
       <div class="plan-pricing">
-        <div class="price-col highlight"><span class="price-period">Anual</span><span class="price-qty">12×</span><span class="price-val"><sup>R$</sup>840</span></div>
-        <div class="price-col"><span class="price-period">Semestral</span><span class="price-qty">6×</span><span class="price-val"><sup>R$</sup>890</span></div>
-        <div class="price-col"><span class="price-period">Pontual</span><span class="price-qty">&nbsp;</span><span class="price-val"><sup>R$</sup>990</span></div>
+        <div class="price-annual">
+          <div>
+            <div class="price-annual-label">Anual — 12×</div>
+          </div>
+          <div class="price-annual-right">
+            <div class="price-annual-val"><sup>R$</sup>840</div>
+          </div>
+        </div>
+        <div class="price-others">
+          <div class="price-other">
+            <span class="price-other-label">Semestral · 6×</span>
+            <div class="price-other-val"><sup>R$</sup>890</div>
+          </div>
+          <div class="price-other">
+            <span class="price-other-label">Pontual</span>
+            <div class="price-other-val"><sup>R$</sup>990</div>
+          </div>
+        </div>
       </div>
       <ul class="plan-features">
         <li><strong>10 Imagens Finais</strong> por obra</li>
@@ -626,6 +648,7 @@
       </div>
     </div>
 
+    <!-- CORPORATE -->
     <div class="plan-card featured">
       <div class="plan-badge">⭐ Mais Contratado</div>
       <div class="plan-header" style="margin-top:20px">
@@ -635,9 +658,24 @@
         </div>
       </div>
       <div class="plan-pricing">
-        <div class="price-col highlight"><span class="price-period">Anual</span><span class="price-qty">12×</span><span class="price-val"><sup>R$</sup>1.270</span></div>
-        <div class="price-col"><span class="price-period">Semestral</span><span class="price-qty">6×</span><span class="price-val"><sup>R$</sup>1.420</span></div>
-        <div class="price-col"><span class="price-period">Pontual</span><span class="price-qty">&nbsp;</span><span class="price-val"><sup>R$</sup>1.590</span></div>
+        <div class="price-annual">
+          <div>
+            <div class="price-annual-label">Anual — 12×</div>
+          </div>
+          <div class="price-annual-right">
+            <div class="price-annual-val"><sup>R$</sup>1.270</div>
+          </div>
+        </div>
+        <div class="price-others">
+          <div class="price-other">
+            <span class="price-other-label">Semestral · 6×</span>
+            <div class="price-other-val"><sup>R$</sup>1.420</div>
+          </div>
+          <div class="price-other">
+            <span class="price-other-label">Pontual</span>
+            <div class="price-other-val"><sup>R$</sup>1.590</div>
+          </div>
+        </div>
       </div>
       <ul class="plan-features">
         <li><strong>25 Imagens Finais</strong> por obra</li>
@@ -652,6 +690,7 @@
       </div>
     </div>
 
+    <!-- SIGNATURE -->
     <div class="plan-card">
       <div class="plan-header">
         <div>
@@ -660,9 +699,24 @@
         </div>
       </div>
       <div class="plan-pricing">
-        <div class="price-col highlight"><span class="price-period">Anual</span><span class="price-qty">12×</span><span class="price-val"><sup>R$</sup>2.690</span></div>
-        <div class="price-col"><span class="price-period">Semestral</span><span class="price-qty">6×</span><span class="price-val"><sup>R$</sup>3.090</span></div>
-        <div class="price-col"><span class="price-period">Pontual</span><span class="price-qty">&nbsp;</span><span class="price-val"><sup>R$</sup>3.490</span></div>
+        <div class="price-annual">
+          <div>
+            <div class="price-annual-label">Anual — 12×</div>
+          </div>
+          <div class="price-annual-right">
+            <div class="price-annual-val"><sup>R$</sup>2.690</div>
+          </div>
+        </div>
+        <div class="price-others">
+          <div class="price-other">
+            <span class="price-other-label">Semestral · 6×</span>
+            <div class="price-other-val"><sup>R$</sup>3.090</div>
+          </div>
+          <div class="price-other">
+            <span class="price-other-label">Pontual</span>
+            <div class="price-other-val"><sup>R$</sup>3.490</div>
+          </div>
+        </div>
       </div>
       <ul class="plan-features">
         <li><strong>30 Imagens Finais</strong> por obra</li>
@@ -690,8 +744,8 @@
 <section class="diff-section">
   <div>
     <div class="section-label">Por que nos escolher</div>
-    <h2>Imagens profissionais fortalecem<br>a confiança no seu <em style="font-style:normal;color:var(--gold)">empreendimento.</em></h2>
-    <p class="section-sub" style="margin-bottom:48px">Cada projeto recebe atenção individualizada, do planejamento à entrega final.</p>
+    <h2>Olhar <em style="font-style:normal;color:var(--gold)">ESPECIALIZADO</em> de quem vive o mercado</h2>
+    <p class="section-sub" style="margin-bottom:48px">Há mais de 18 anos produzindo imagens para o Mercado Imobiliário em todo o Brasil.</p>
     <div class="diff-list">
       <div class="diff-item"><div class="diff-num">01</div><div><div class="diff-title">Atendimento Especializado</div><p class="diff-desc">Atendemos o mercado imobiliário há mais de 18 anos.</p></div></div>
       <div class="diff-item"><div class="diff-num">02</div><div><div class="diff-title">Padrão de Qualidade Profissional</div><p class="diff-desc">A percepção da qualidade da obra é influenciada pela qualidade das imagens mostradas.</p></div></div>
@@ -713,8 +767,8 @@
 <!-- CLIENTES -->
 <section class="testimonials-section" id="clientes">
   <div class="section-label">Nossos Clientes</div>
-  <h2>Empresas que já <em style="font-style:normal;color:var(--gold)">atendemos</em></h2>
-  <p class="section-sub">Grandes incorporadoras e construtoras que confiaram no nosso trabalho.</p>
+  <h2>CONSTRUTORAS E INCORPORADORAS que já <em style="font-style:normal;color:var(--gold)">atendemos</em></h2>
+  <p class="section-sub">Grandes construtoras e incorporadoras que confiaram no nosso trabalho.</p>
   <div class="logos-grid">
     <div class="logo-item"><img src="logo1-direcional.png" alt="Direcional" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
     <div class="logo-item"><img src="logo2-riva.png" alt="Riva" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
@@ -738,7 +792,7 @@
 <section class="contact-section" id="contato">
   <div class="contact-info">
     <div class="section-label">Fale conosco</div>
-    <h2>Vamos conversar sobre o seu <em style="font-style:normal;color:var(--gold)">empreendimento?</em></h2>
+    <h2><em style="font-style:normal;color:var(--gold)">VAMOS CONVERSAR</em> sobre o seu empreendimento?</h2>
     <p class="section-sub" style="margin-bottom:0">Nossa equipe está pronta para entender as necessidades da sua obra e apresentar a solução ideal para o seu projeto.</p>
     <div class="contact-detail">
       <div class="contact-item">
@@ -825,7 +879,7 @@
     }
   });
 
-  /* Intersection Observer — anima seções ao entrar na tela */
+  /* Intersection Observer */
   (function(){
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
