@@ -126,46 +126,41 @@
   }
 
   .portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    grid-auto-rows:auto;
+    display:flex;
     gap:4px;
     width:100%;
-    align-items:start;
+    align-items:flex-start;
   }
-
+  .portfolio-col{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
   .port-item{
     overflow:hidden;
     width:100%;
     position:relative;
     line-height:0;
   }
-
   .port-item img{
     width:100%;
     height:auto;
     display:block;
     transition:transform .5s ease;
   }
-
   .port-item:hover img{
     transform:scale(1.02);
   }
-
   .port-item::after{
     content:'';
     position:absolute;
     inset:0;
-    background:linear-gradient(
-      to top,
-      rgba(201,146,42,.15) 0%,
-      transparent 50%
-    );
+    background:linear-gradient(to top,rgba(201,146,42,.15) 0%,transparent 50%);
     opacity:0;
     transition:opacity .4s;
     pointer-events:none;
   }
-
   .port-item:hover::after{
     opacity:1;
   }
@@ -372,14 +367,8 @@
     .contact-section{padding:60px 20px;grid-template-columns:1fr;gap:36px}
     .contact-info{padding-right:0}
     .services-grid{grid-template-columns:1fr;gap:12px}
-.portfolio-grid{
-  grid-template-columns:repeat(2,1fr);
-  gap:3px;
-}
-
-.port-item{
-  height:auto;
-}
+.portfolio-grid{ gap:3px; }
+.portfolio-col{ gap:3px; }
     .video-grid{grid-template-columns:repeat(2,1fr)}
     .plans-grid{grid-template-columns:1fr;gap:16px}
     .diff-section{grid-template-columns:1fr;padding:60px 20px;gap:40px}
@@ -396,13 +385,8 @@
     h1{font-size:1.8rem}
     .hero-left{padding:90px 16px 24px}
     .hero-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px}
-.portfolio-grid{
-  grid-template-columns:1fr;
-}
-
-.port-item{
-  height:auto;
-}
+.portfolio-grid{ flex-direction:column; }
+.portfolio-col{ flex-direction:column; }
     .video-grid{grid-template-columns:1fr}
     .logos-grid{grid-template-columns:repeat(2,1fr)}
     .section,.plans-section,.portfolio-section,.testimonials-section{padding:48px 16px}
@@ -520,69 +504,28 @@
 
   <div class="portfolio-grid">
     <!-- COL 1 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg"
-           alt="Áreas Internas" loading="lazy" decoding="async">
+    <div class="portfolio-col">
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/8-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Internas_evaalx.jpg" alt="Áreas Internas" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471371/6-Decorado_ixhmcs.jpg" alt="Decorado" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg" alt="Prédio Noturno" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg" alt="Imóvel Alto Padrão" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg" alt="Evolução da Obra" loading="lazy" decoding="async"></div>
     </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471371/6-Decorado_ixhmcs.jpg"
-           alt="Decorado" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/5-Fotografia_Fachada4_a5dx5t.jpg"
-           alt="Prédio Noturno" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/14-Imo%CC%81vel_Alto_Padra%CC%83o_j3vysl.jpg"
-           alt="Imóvel Alto Padrão" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470694/1-Evoluc%CC%A7a%CC%83o_Obra_mzljkm.jpg"
-           alt="Evolução da Obra" loading="lazy" decoding="async">
-    </div>
-
     <!-- COL 2 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470701/11-Decorado2_b9ln1d.jpg"
-           alt="Decorado" loading="lazy" decoding="async">
+    <div class="portfolio-col">
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470701/11-Decorado2_b9ln1d.jpg" alt="Decorado" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg" alt="Imagens Aéreas" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg" alt="Áreas Comuns" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg" alt="Mapa Aéreo" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg" alt="Áreas Comuns" loading="lazy" decoding="async"></div>
     </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg"
-           alt="Imagens Aéreas" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg"
-           alt="Áreas Comuns" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg"
-           alt="Mapa Aéreo" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg"
-           alt="Áreas Comuns" loading="lazy" decoding="async">
-    </div>
-
     <!-- COL 3 -->
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg"
-           alt="Fotografia Fachada" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg"
-           alt="Evolução Unidades" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg"
-           alt="Fotografia Corporativa" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg"
-           alt="Fotografia Panorâmica" loading="lazy" decoding="async">
-    </div>
-    <div class="port-item">
-      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg"
-           alt="Evolução Áreas Externas" loading="lazy" decoding="async">
+    <div class="portfolio-col">
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg" alt="Fotografia Fachada" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg" alt="Evolução Unidades" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg" alt="Fotografia Corporativa" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg" alt="Fotografia Panorâmica" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470695/4-Evoluc%CC%A7a%CC%83o_A%CC%81reas_Externas_z1cgqe.jpg" alt="Evolução Áreas Externas" loading="lazy" decoding="async"></div>
     </div>
   </div>
 
