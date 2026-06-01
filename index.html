@@ -125,13 +125,25 @@
     background:var(--surface);
   }
 
-  .portfolio-grid{
-    column-count:3;
-    column-gap:4px;
-    margin-top:48px;
-    /* garante que o container não colapsa */
-    width:100%;
-  }
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:4px;
+  margin-top:48px;
+  width:100%;
+}
+
+.port-item{
+  height:320px;
+  margin-bottom:0;
+}
+
+.port-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 
   .port-item{
     break-inside:avoid;
@@ -376,8 +388,14 @@
     .contact-section{padding:60px 20px;grid-template-columns:1fr;gap:36px}
     .contact-info{padding-right:0}
     .services-grid{grid-template-columns:1fr;gap:12px}
-    .portfolio-grid{column-count:2;column-gap:3px}
-    .port-item{margin-bottom:3px}
+.portfolio-grid{
+  grid-template-columns:repeat(2, 1fr);
+  gap:3px;
+}
+
+.port-item{
+  height:220px;
+}
     .video-grid{grid-template-columns:repeat(2,1fr)}
     .plans-grid{grid-template-columns:1fr;gap:16px}
     .diff-section{grid-template-columns:1fr;padding:60px 20px;gap:40px}
@@ -394,7 +412,13 @@
     h1{font-size:1.8rem}
     .hero-left{padding:90px 16px 24px}
     .hero-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px}
-    .portfolio-grid{column-count:2}
+.portfolio-grid{
+  grid-template-columns:1fr;
+}
+
+.port-item{
+  height:260px;
+}
     .video-grid{grid-template-columns:1fr}
     .logos-grid{grid-template-columns:repeat(2,1fr)}
     .section,.plans-section,.portfolio-section,.testimonials-section{padding:48px 16px}
