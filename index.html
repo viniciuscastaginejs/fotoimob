@@ -297,10 +297,10 @@
   .testimonials-section::before{content:'';position:absolute;inset:0;z-index:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(201,146,42,.02) 60px,rgba(201,146,42,.02) 61px);pointer-events:none}
   .testimonials-section>*{position:relative;z-index:1}
   .logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:56px}
-  .logo-item{background:var(--card-bg);border:1px solid var(--border-subtle);padding:28px 20px;display:flex;align-items:center;justify-content:center;min-height:100px;box-shadow:var(--shadow);transition:all .3s}
+  .logo-item{background:#fff;border:1px solid var(--border-subtle);border-radius:10px;padding:22px 18px;display:flex;align-items:center;justify-content:center;min-height:96px;box-shadow:var(--shadow);transition:all .3s}
   .logo-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--border)}
-  .logo-item img{max-width:130px;max-height:52px;object-fit:contain;filter:grayscale(100%) invert(1);opacity:.5;transition:filter .3s,opacity .3s}
-  .logo-item:hover img{filter:grayscale(40%) invert(1) sepia(.3) saturate(2) hue-rotate(5deg);opacity:.85}
+  .logo-item img{max-width:130px;max-height:50px;width:auto;height:auto;object-fit:contain;filter:grayscale(100%);opacity:.6;transition:filter .3s,opacity .3s}
+  .logo-item:hover img{filter:grayscale(0%);opacity:1}
 
   /* CONTATO */
   .contact-section{padding:100px 48px;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:80px}
@@ -517,13 +517,15 @@
     <div class="portfolio-col">
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470701/11-Decorado2_b9ln1d.jpg" alt="Decorado" loading="eager" decoding="async"></div>
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470695/3-Imagens_Ae%CC%81reas_xceckx.jpg" alt="Imagens Aéreas" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1781559622/Foto_Ae%CC%81rea_l38ikv.jpg" alt="Foto Aérea" loading="lazy" decoding="async"></div>
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471375/7-A%CC%81reas_Comuns_eiiwgg.jpg" alt="Áreas Comuns" loading="lazy" decoding="async"></div>
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470704/15-Mapa_Ae%CC%81reo_um2auv.jpg" alt="Mapa Aéreo" loading="lazy" decoding="async"></div>
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/10-A%CC%81reas_Comuns2_rcgsuz.jpg" alt="Áreas Comuns" loading="lazy" decoding="async"></div>
     </div>
     <!-- COL 3 -->
     <div class="portfolio-col">
-      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg" alt="Fotografia Fachada" loading="eager" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470704/2-Fotografia_Fachada3_wdfzdo.jpg" alt="Fotografia Fachada" loading="lazy" decoding="async"></div>
+      <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1781559661/Foto_de_Fachada_xyu2tk.jpg" alt="Foto de Fachada" loading="lazy" decoding="async"></div>
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779470697/9-Evoluc%CC%A7a%CC%83o_Unidades_c5dfya.jpg" alt="Evolução Unidades" loading="lazy" decoding="async"></div>
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_700,f_auto,q_auto/v1779471372/12-Fotografia_Corporativa_gdxpuh.jpg" alt="Fotografia Corporativa" loading="lazy" decoding="async"></div>
       <div class="port-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/w_900,f_auto,q_auto/v1779470696/13-Fotografia_Panora%CC%82mica2_vl64ix.jpg" alt="Fotografia Panorâmica" loading="lazy" decoding="async"></div>
@@ -723,21 +725,21 @@
   <h2>CONSTRUTORAS E INCORPORADORAS que já <em style="font-style:normal;color:var(--gold)">atendemos</em></h2>
   <p class="section-sub">Grandes construtoras e incorporadoras que confiaram no nosso trabalho.</p>
   <div class="logos-grid">
-    <div class="logo-item"><img src="logo1-direcional.png" alt="Direcional" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo2-riva.png" alt="Riva" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo3-cyrela.png" alt="Cyrela" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo4-tegra.jpg" alt="Tegra" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo5-brookfield.jpg" alt="Brookfield" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo6-opportunity.png" alt="Opportunity" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo7-patrimar.png" alt="Patrimar" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo8-pdg.png" alt="PDG" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo9-calcada.png" alt="Calçada" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo10-wtorre.png" alt="WTorre" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo11-itten.png" alt="Itten" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo12-helbor.png" alt="Helbor" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo13-even.png" alt="Even" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo14-gafisa.png" alt="Gafisa" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
-    <div class="logo-item"><img src="logo15-rossi.png" alt="Rossi" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559206/1-logo_Direcional_v2a2rg.png" alt="Direcional" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559206/2-LOGO_RIVA_zimotc.png" alt="Riva" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559206/3-logo_cyrela_a9ctll.png" alt="Cyrela" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559206/4-logo_Tegra-Incorporadora_vakktt.jpg" alt="Tegra Incorporadora" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/5-Logo_Brookfield_hakqwu.jpg" alt="Brookfield" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/6-logo_opportunity_dsayx9.png" alt="Opportunity" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/7-logo_Patrimar_xcfuyq.png" alt="Patrimar" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559206/8-logo_PDG_auk58x.png" alt="PDG" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/9-logo_Calcada_idbbao.png" alt="Calçada" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/10-logo_Wtorre_eqmi6j.png" alt="WTorre" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559206/11-logo_itten_bnqn6n.png" alt="Itten" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/12-logo_Helbor_gcjis5.png" alt="Helbor" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/13-logo_EVEN_sfchp9.png" alt="Even" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/14-logo_Gafisa_mvrcme.png" alt="Gafisa" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
+    <div class="logo-item"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/f_auto,q_auto,w_300/v1781559207/15-logo_Rossi_vudooz.png" alt="Rossi" loading="lazy" decoding="async" onerror="this.style.opacity='0'"></div>
   </div>
 </section>
 
