@@ -3,8 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FotoLab | Fotografia Imobiliária</title>
-<meta name="description" content="Fotografia Imobiliária profissional para incorporadoras e construtoras. Mais de 18 anos de experiência no mercado imobiliário do Rio de Janeiro.">
+<title>FotoLab | Fotografia Imobiliária e de Evolução de Obra — Rio de Janeiro</title>
+<meta name="description" content="Fotografia imobiliária profissional, aérea e de evolução de obra para incorporadoras e construtoras. Mais de 18 anos de experiência no mercado imobiliário do Rio de Janeiro.">
+
+<!-- ===== SEO ===== -->
+<!-- ATENÇÃO: troque o domínio abaixo pelo domínio real do site (ex.: https://www.fotolab.com.br/) -->
+<link rel="canonical" href="https://www.fotolab.com.br/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="FotoLab Fotografia">
+<meta name="keywords" content="fotografia imobiliária, fotografia de obra, evolução de obra, fotografia aérea, drone, incorporadora, construtora, Rio de Janeiro, fotografia de empreendimentos">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Geo -->
+<meta name="geo.region" content="BR-RJ">
+<meta name="geo.placename" content="Rio de Janeiro">
+<meta name="ICBM" content="-22.9068, -43.1729">
+
+<!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FotoLab Fotografia">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="FotoLab | Fotografia Imobiliária e de Evolução de Obra — Rio de Janeiro">
+<meta property="og:description" content="Fotografia imobiliária profissional, aérea e de evolução de obra para incorporadoras e construtoras. Mais de 18 anos de experiência no mercado imobiliário do RJ.">
+<meta property="og:url" content="https://www.fotolab.com.br/">
+<meta property="og:image" content="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1200,h_630,c_fill,g_auto,f_jpg,q_auto/v1779457877/ChavesStilloRJ-2554_1_ls972u.jpg">
+<meta property="og:image:secure_url" content="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1200,h_630,c_fill,g_auto,f_jpg,q_auto/v1779457877/ChavesStilloRJ-2554_1_ls972u.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fotografia de empreendimento imobiliário pela FotoLab">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FotoLab | Fotografia Imobiliária e de Evolução de Obra — Rio de Janeiro">
+<meta name="twitter:description" content="Fotografia imobiliária profissional, aérea e de evolução de obra para incorporadoras e construtoras. Mais de 18 anos no mercado imobiliário do RJ.">
+<meta name="twitter:image" content="https://res.cloudinary.com/dtdomrtyp/image/upload/w_1200,h_630,c_fill,g_auto,f_jpg,q_auto/v1779457877/ChavesStilloRJ-2554_1_ls972u.jpg">
+
+<!-- ===== FAVICONS ===== -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- ===== Dados estruturados (Google) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "FotoLab Fotografia",
+  "image": "https://res.cloudinary.com/dtdomrtyp/image/upload/v1780319017/logo3D-Fotolab-branco_y3hym6.png",
+  "description": "Fotografia imobiliária profissional, aérea e de evolução de obra para incorporadoras e construtoras, com mais de 18 anos de experiência no mercado imobiliário.",
+  "url": "https://www.fotolab.com.br/",
+  "telephone": "+55-21-98743-1010",
+  "priceRange": "$$",
+  "areaServed": [
+    { "@type": "City", "name": "Rio de Janeiro" },
+    { "@type": "Country", "name": "Brasil" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rio de Janeiro",
+    "addressRegion": "RJ",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://www.instagram.com/fotolab_br/"
+  ],
+  "knowsAbout": [
+    "Fotografia imobiliária",
+    "Fotografia de evolução de obra",
+    "Fotografia aérea com drone",
+    "Produção de conteúdo para incorporadoras"
+  ]
+}
+</script>
 
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://res.cloudinary.com">
@@ -216,72 +291,75 @@
   .plan-name{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
   .plan-title{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--dark);text-transform:uppercase}
 
-  /* Novo layout de preços: anual em destaque + semestral/pontual embaixo */
+  /* Layout de preços: banner CONTRATO ANUAL + faixa de 4 stats */
   .plan-pricing{
     margin:24px 0 28px;
     border:1px solid var(--border-subtle);
+    background:rgba(0,0,0,.22);
     overflow:hidden;
   }
   .price-annual{
-    padding:16px 20px;
-    background:rgba(201,146,42,.08);
-    border-bottom:1px solid var(--border-subtle);
+    padding:18px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:12px;
+    gap:10px;
   }
   .price-annual-label{
-    font-size:.6rem;
-    letter-spacing:.2em;
+    font-family:'Montserrat',sans-serif;
+    font-size:1.02rem;
+    font-weight:700;
+    letter-spacing:.02em;
     text-transform:uppercase;
     color:var(--gold);
-    font-weight:500;
+    line-height:1.1;
+    white-space:nowrap;
+  }
+  .price-annual-right{
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    flex-shrink:0;
   }
   .price-annual-qty{
-    font-size:.7rem;
+    font-size:.78rem;
     color:var(--muted);
+    font-weight:400;
+    align-self:flex-start;
+    margin-top:4px;
   }
   .price-annual-val{
     font-family:'Montserrat',sans-serif;
-    font-size:1.9rem;
+    font-size:2.05rem;
     font-weight:700;
     color:var(--dark);
     line-height:1;
+    white-space:nowrap;
   }
   .price-annual-val sup{
-    font-size:.7rem;
+    font-size:.72rem;
     vertical-align:super;
     font-weight:400;
     color:var(--muted);
+    margin-right:1px;
   }
-  .price-annual-right{
-    text-align:right;
-  }
-  .price-others{
+  .price-stats{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--border-subtle);
   }
-  .price-other{
-    padding:10px 14px;
+  .price-stat{
+    padding:12px 6px;
+    text-align:center;
     border-right:1px solid var(--border-subtle);
-  }
-  .price-other:last-child{border-right:none}
-  .price-other-label{
-    font-size:.55rem;
-    letter-spacing:.15em;
+    font-size:.56rem;
+    letter-spacing:.12em;
     text-transform:uppercase;
-    color:var(--muted2);
-    display:block;
-    margin-bottom:3px;
-  }
-  .price-other-val{
-    font-family:'Montserrat',sans-serif;
-    font-size:1rem;
-    font-weight:700;
     color:var(--muted);
+    line-height:1.55;
+    font-weight:500;
   }
-  .price-other-val sup{font-size:.6rem;vertical-align:super;font-weight:400}
+  .price-stat:last-child{border-right:none}
 
   .plan-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:20px;flex:1}
   .plan-features li{font-size:.84rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.4}
@@ -411,6 +489,10 @@
     .hero-sub{font-size:.9rem}
     .hero-btns{gap:10px}
     .btn-primary,.btn-outline{padding:13px 22px;font-size:.72rem}
+    .price-annual{padding:16px 16px}
+    .price-annual-label{font-size:1.05rem}
+    .price-annual-val{font-size:2.1rem}
+    .price-stat{font-size:.52rem;padding:11px 4px}
   }
 </style>
 </head>
@@ -587,22 +669,17 @@
       </div>
       <div class="plan-pricing">
         <div class="price-annual">
-          <div>
-            <div class="price-annual-label">Anual — 12×</div>
-          </div>
+          <div class="price-annual-label">Contrato Anual</div>
           <div class="price-annual-right">
+            <span class="price-annual-qty">12×</span>
             <div class="price-annual-val"><sup>R$</sup>840</div>
           </div>
         </div>
-        <div class="price-others">
-          <div class="price-other">
-            <span class="price-other-label">Semestral · 6×</span>
-            <div class="price-other-val"><sup>R$</sup>890</div>
-          </div>
-          <div class="price-other">
-            <span class="price-other-label">Pontual</span>
-            <div class="price-other-val"><sup>R$</sup>990</div>
-          </div>
+        <div class="price-stats">
+          <div class="price-stat">12 Visitas<br>à Obra</div>
+          <div class="price-stat">Pagamentos<br>Mensais</div>
+          <div class="price-stat">Evolução<br>de 1 Obra</div>
+          <div class="price-stat">Envios<br>Regulares</div>
         </div>
       </div>
       <ul class="plan-features">
@@ -610,6 +687,7 @@
         <li><strong>1 Imagem Aérea</strong> inclusa</li>
         <li>Entrega em <strong>5 dias úteis</strong></li>
         <li>Captação em <strong>áreas externas</strong></li>
+        <li>Opções de <strong>Contrato Semestral</strong> e <strong>Contrato Único</strong></li>
       </ul>
       <div class="plan-target">Ideal para obras de menor porte, com 1 ou 2 torres.</div>
       <div class="plan-btn-wrap">
@@ -628,22 +706,17 @@
       </div>
       <div class="plan-pricing">
         <div class="price-annual">
-          <div>
-            <div class="price-annual-label">Anual — 12×</div>
-          </div>
+          <div class="price-annual-label">Contrato Anual</div>
           <div class="price-annual-right">
+            <span class="price-annual-qty">12×</span>
             <div class="price-annual-val"><sup>R$</sup>1.270</div>
           </div>
         </div>
-        <div class="price-others">
-          <div class="price-other">
-            <span class="price-other-label">Semestral · 6×</span>
-            <div class="price-other-val"><sup>R$</sup>1.420</div>
-          </div>
-          <div class="price-other">
-            <span class="price-other-label">Pontual</span>
-            <div class="price-other-val"><sup>R$</sup>1.590</div>
-          </div>
+        <div class="price-stats">
+          <div class="price-stat">12 Visitas<br>à Obra</div>
+          <div class="price-stat">Pagamentos<br>Mensais</div>
+          <div class="price-stat">Evolução<br>de 1 Obra</div>
+          <div class="price-stat">Envios<br>Regulares</div>
         </div>
       </div>
       <ul class="plan-features">
@@ -652,6 +725,7 @@
         <li>Entrega em <strong>3 a 5 dias úteis</strong></li>
         <li>Captação em <strong>áreas externas</strong></li>
         <li>Captação em <strong>áreas internas e unidades</strong></li>
+        <li>Opções de <strong>Contrato Semestral</strong> e <strong>Contrato Único</strong></li>
       </ul>
       <div class="plan-target">Ideal para obras de condomínios multifamiliares.</div>
       <div class="plan-btn-wrap">
@@ -669,22 +743,17 @@
       </div>
       <div class="plan-pricing">
         <div class="price-annual">
-          <div>
-            <div class="price-annual-label">Anual — 12×</div>
-          </div>
+          <div class="price-annual-label">Contrato Anual</div>
           <div class="price-annual-right">
+            <span class="price-annual-qty">12×</span>
             <div class="price-annual-val"><sup>R$</sup>2.690</div>
           </div>
         </div>
-        <div class="price-others">
-          <div class="price-other">
-            <span class="price-other-label">Semestral · 6×</span>
-            <div class="price-other-val"><sup>R$</sup>3.090</div>
-          </div>
-          <div class="price-other">
-            <span class="price-other-label">Pontual</span>
-            <div class="price-other-val"><sup>R$</sup>3.490</div>
-          </div>
+        <div class="price-stats">
+          <div class="price-stat">12 Visitas<br>à Obra</div>
+          <div class="price-stat">Pagamentos<br>Mensais</div>
+          <div class="price-stat">Evolução<br>de 1 Obra</div>
+          <div class="price-stat">Envios<br>Regulares</div>
         </div>
       </div>
       <ul class="plan-features">
@@ -694,6 +763,7 @@
         <li>Captação em <strong>áreas externas</strong></li>
         <li>Captação em <strong>áreas internas e unidades</strong></li>
         <li><strong>Vídeo para redes sociais</strong> (até 1')</li>
+        <li>Opções de <strong>Contrato Semestral</strong> e <strong>Contrato Único</strong></li>
       </ul>
       <div class="plan-target">Ideal para obras de alto padrão e grandes condomínios multifamiliares.</div>
       <div class="plan-btn-wrap">
@@ -724,7 +794,7 @@
   </div>
   <div class="diff-visual">
     <div class="diff-img-main">
-      <img src="diferenciais.jpeg" loading="lazy" decoding="async" alt="Nossa experiência" onerror="this.style.display='none'">
+      <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1781640629/img_clientes_satisfeitos_dkrzho.jpg" loading="lazy" decoding="async" alt="Nossa experiência no mercado imobiliário" onerror="this.style.display='none'">
     </div>
     <div class="diff-badge">
       <span class="diff-badge-num">100%</span>
